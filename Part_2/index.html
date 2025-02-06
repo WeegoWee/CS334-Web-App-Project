@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Kofee - Cafe HTML Bootstrap 5 Website Template</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!--style sheet-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <svg style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" id="search" viewBox="0 0 512 512">
+            <path fill="currentColor"
+                d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3M97.92 222.72a124.8 124.8 0 1 1 124.8 124.8a124.95 124.95 0 0 1-124.8-124.8" />
+        </symbol>
+        <symbol id="simple-icons--buymeacoffee" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="m20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379c-.197-.069-.42-.098-.57-.241c-.152-.143-.196-.366-.231-.572c-.065-.378-.125-.756-.192-1.133c-.057-.325-.102-.69-.25-.987c-.195-.4-.597-.634-.996-.788a6 6 0 0 0-.626-.194c-1-.263-2.05-.36-3.077-.416a26 26 0 0 0-3.7.062c-.915.083-1.88.184-2.75.5c-.318.116-.646.256-.888.501c-.297.302-.393.77-.177 1.146c.154.267.415.456.692.58c.36.162.737.284 1.123.366c1.075.238 2.189.331 3.287.37q1.829.074 3.65-.118q.449-.05.896-.119c.352-.054.578-.513.474-.834c-.124-.383-.457-.531-.834-.473c-.466.074-.96.108-1.382.146q-1.767.12-3.536.006a22 22 0 0 1-1.157-.107c-.086-.01-.18-.025-.258-.036q-.364-.055-.724-.13c-.111-.027-.111-.185 0-.212h.005q.416-.09.838-.147h.002c.131-.009.263-.032.394-.048a25 25 0 0 1 3.426-.12q1.011.029 2.017.144l.228.031q.4.06.798.145c.392.085.895.113 1.07.542c.055.137.08.288.111.431l.319 1.484a.237.237 0 0 1-.199.284h-.003l-.112.015a37 37 0 0 1-4.743.295a37 37 0 0 1-4.699-.304c-.14-.017-.293-.042-.417-.06c-.326-.048-.649-.108-.973-.161c-.393-.065-.768-.032-1.123.161c-.29.16-.527.404-.675.701c-.154.316-.199.66-.267 1c-.069.34-.176.707-.135 1.056c.087.753.613 1.365 1.37 1.502a39.7 39.7 0 0 0 11.343.376a.483.483 0 0 1 .535.53l-.071.697l-1.018 9.907c-.041.41-.047.832-.125 1.237c-.122.637-.553 1.028-1.182 1.171q-.868.197-1.756.205c-.656.004-1.31-.025-1.966-.022c-.699.004-1.556-.06-2.095-.58c-.475-.458-.54-1.174-.605-1.793l-.731-7.013l-.322-3.094c-.037-.351-.286-.695-.678-.678c-.336.015-.718.3-.678.679l.228 2.185l.949 9.112c.147 1.344 1.174 2.068 2.446 2.272c.742.12 1.503.144 2.257.156c.966.016 1.942.053 2.892-.122c1.408-.258 2.465-1.198 2.616-2.657l1.024-9.995l.215-2.087a.48.48 0 0 1 .39-.426c.402-.078.787-.212 1.074-.518c.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233c-2.416.359-4.866.54-7.308.46c-1.748-.06-3.477-.254-5.207-.498c-.17-.024-.353-.055-.47-.18c-.22-.236-.111-.71-.054-.995c.052-.26.152-.609.463-.646c.484-.057 1.046.148 1.526.22q.865.132 1.737.212c2.48.226 5.002.19 7.472-.14q.675-.09 1.345-.21c.399-.072.84-.206 1.08.206c.166.281.188.657.162.974a.54.54 0 0 1-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a6 6 0 0 1-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38c0 0 1.243.065 1.658.065c.447 0 1.786-.065 1.786-.065c.783 0 1.434-.6 1.499-1.38l.94-9.95a4 4 0 0 0-1.322-.238c-.826 0-1.491.284-2.26.613" />
+        </symbol>
+        <symbol id="game-icons--coffee-pot" viewBox="0 0 512 512">
+            <path fill="#dddad5"
+                d="M49.66 45.63L108.1 148.3h217.5V78.25zm27.9 120.67v19.6H334.6c48 0 82.2 29.3 103.2 64.3c19 31.5 28.2 67.7 29.9 95.6h20.1c-2.1-32.8-15.2-76.2-37.2-111.8c-24.1-38.9-57.8-67.7-98-67.7zm13.29 37.6c-3.15 4.7-9 15.1-14.87 28.6c-7.34 16.9-15.6 38.8-23.3 62.9C37.29 343.7 24.2 400.9 24.2 443.3c0 6 3.27 13.1 8.54 18.5c5.27 5.3 12.2 8.6 17.99 8.6H370.6c5.6 0 12.6-3.3 17.9-8.6c5.3-5.4 8.6-12.5 8.6-18.5c0-42.4-13.1-99.6-28.6-147.9c-7.7-24.1-16-46-23.4-62.9c-5.9-13.5-11.8-23.9-15-28.6zM65.01 337.1H355.6c7.5 29.1 12.8 59.7 12.8 84.3c0 13.8-14.6 28.3-29.2 28.3H81.04c-14.29 0-28.73-14.5-28.73-28.3c0-24.6 5.24-55.2 12.7-84.3" />
+        </symbol>
+        <symbol id="game-icons--coffee-cup" viewBox="0 0 512 512">
+            <path fill="#dddad5"
+                d="M144 32S94.11 69.4 96 96c1.604 22.57 44.375 25.665 48 48c1.91 11.772-16 32-16 32s48-25.373 48-48s-42.8-25.978-48-48c-3.875-16.414 16-48 16-48m80 0s-49.89 37.4-48 64c1.604 22.57 44.375 25.665 48 48c1.91 11.772-16 32-16 32s48-25.373 48-48s-42.8-25.978-48-48c-3.875-16.414 16-48 16-48m80 0s-49.89 37.4-48 64c1.604 22.57 44.375 25.665 48 48c1.91 11.772-16 32-16 32s48-25.373 48-48s-42.8-25.978-48-48c-3.875-16.414 16-48 16-48M73.293 201c1.43 63.948 18.943 179.432 74.707 238h152c55.764-58.568 73.278-174.052 74.707-238zm319.598.445c-.186 9.152-.652 19.252-1.472 30.057C419.312 235.162 441 259.142 441 288c0 31.374-25.626 57-57 57a56.7 56.7 0 0 1-12.764-1.465c-2.912 9.62-6.176 19.165-9.84 28.51A87.5 87.5 0 0 0 384 375c48.155 0 87-38.845 87-87c0-45.153-34.153-82.12-78.11-86.555zM42.763 457c1.507 5.193 3.854 11.2 6.955 16.37c2.637 4.394 5.69 8.207 8.428 10.58C60.882 486.32 63 487 64 487h320c1 0 3.118-.678 5.855-3.05c2.738-2.373 5.79-6.186 8.428-10.58c3.1-5.17 5.448-11.177 6.955-16.37z" />
+        </symbol>
+        <symbol id="game-icons--coffee-beans" viewBox="0 0 512 512">
+            <path fill="#dddad5"
+                d="M203.043 26.648c-8.893.062-17.672 1.326-26.193 3.873c-8.454 2.53-16.242 6.197-23.31 10.867c7.722 19.622 27.435 44.53 50.27 65.793c23.842 22.202 51.18 41.065 68.835 49.572l.207.1l.203.103c16.224 8.335 27.71 21.453 34.34 35.924c4.27 9.318 6.757 19.078 8.207 29c13-10.14 26.704-18.26 40.636-24.153c-1.06-18.31-5.088-37.51-12.424-56.735c-15.386-40.32-42.26-72.78-72.695-92.576c-21.875-14.228-45.35-21.926-68.077-21.768zm-76.408 42.305c-5.113 7.934-9.306 16.78-12.492 26.387c-10.64 32.074-9.777 72.308 5.61 112.63c9.312 24.403 22.837 45.92 38.81 63.5c15.736 4.708 31.3 11.982 45.92 21.852c11.296 7.627 21.362 16.357 30.085 25.852c2.847.692 5.695 1.282 8.54 1.746c5.42-14.138 12.455-28.204 21.124-41.85a239 239 0 0 1 17.21-23.757c.072-5.192.03-10.223-.217-15.026c-.67-12.99-2.75-24.1-6.56-32.414c-3.808-8.314-8.77-14.122-18.06-18.894l.41.202c-22.878-11.025-51.447-31.172-77.74-55.655c-20.9-19.46-40.288-41.258-52.64-64.574zm279.752 135.725c-13.507.11-27.796 3.247-42.252 9.248c-30.84 12.802-61.806 38.75-84.71 74.797c-11.717 18.442-20.137 37.67-25.372 56.523c20.55 34.478 25.597 74.082 10.793 107.342a76 76 0 0 0 7.986 9.613c21.644-18.674 46.588-34.143 64.316-50.028c9.69-8.68 17.027-17.275 21.104-25.46c4.077-8.187 5.48-15.697 3.36-25.923l-.124-.595l-.082-.6c-8.053-58.294 6.075-92.552 26.664-113.51c16.556-16.85 33.036-25.725 44.405-37.442c-8.214-2.73-16.972-4.04-26.088-3.965m56.746 23.953c-16.63 20.67-37.133 30.217-49.383 42.686c-14.076 14.328-23.793 31.575-16.715 83.104c3.408 17.52.413 34.346-6.558 48.342c-7.097 14.247-17.71 25.832-29.305 36.222c-17.613 15.782-37.93 29.296-54.926 42.48c19.275 5.007 41.22 2.584 63.565-6.693c30.84-12.8 61.808-38.75 84.71-74.797c22.905-36.048 33.24-75.107 31.728-108.463c-1.156-25.51-9.035-47.368-23.115-62.88zm-66.098 125.79c-.06-.315-.108-.628-.174-.943l.208 1.193a7 7 0 0 0-.033-.25zm-280.223-71.424c-18.383-.166-35.7 3.865-50.275 11.807c.1.003.187.01.287.013c8.63.305 19.464-.713 31.938.99c12.473 1.704 27.085 7.368 38.154 19.893c11.07 12.524 18.66 30.28 23.947 55.78l.125.594l.082.602c2.453 17.792 13.786 28.085 33.434 37.722c16.764 8.223 38.287 14.095 58.717 20.073c9.15-41-12.56-91.006-58.81-122.23c-24.938-16.836-52.274-25.015-77.597-25.244zm-81.078 41.447c-25.27 43.53-5.004 107.405 50.106 144.612c54.225 36.61 119.786 32.276 151.34-5.7c-18.436-5.254-39.336-11.22-58.53-20.634c-24.75-12.14-48.34-32.54-53.1-64.222c-4.533-21.7-10.59-33.28-15.61-38.96c-5.04-5.707-8.97-7.095-16.05-8.06c-7.08-.968-16.81-.277-28.333-.683c-8.98-.316-19.516-1.605-29.823-6.352zm89.817 54.055c.022.1.044.192.065.293l-.207-1.196c.042.304.097.6.143.904z" />
+        </symbol>
+        <symbol id="la--search" viewBox="0 0 32 32">
+            <path fill="currentColor"
+                d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.92 9.92 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3m0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8" />
+        </symbol>
+        <symbol id="ri--facebook-fill" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z" />
+        </symbol>
+        <symbol id="mdi--instagram" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+        </symbol>
+        <symbol id="mdi--twitter" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23" />
+        </symbol>
+        <symbol id="ri--linkedin-fill" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002M7 8.48H3V21h4zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91z" />
+        </symbol>
+        <symbol id="mdi--youtube" viewBox="0 0 24 24">
+            <path fill="#dddad5"
+                d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73" />
+        </symbol>
+        <symbol id="navbar-icon" viewBox="0 0 16 16">
+            <path
+                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+        </symbol>
+    </svg>
+
+    <header class="bg-primary">
+        <!-- place nav bar -->
+        <nav class="header-top">
+            <div class="container">
+                <ul class="nav justify-content-between d-flex list-unstyled py-2">
+                    <li class="fw-light">Tired ? Let’s have a cup of coffee.</li>
+                    <li class="fw-light">Call us: 123 456 789 241</li>
+                    <li class="fw-light">Our location: Your location, Country</li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav id="primary-header" class="navbar navbar-expand-lg py-3 px-2 border-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/Logo.png" class="logo img-fluid">
+                </a>
+                <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
+                    aria-expanded="false">
+                    <svg class="" width="60" height="60">
+                        <use xlink:href="#navbar-icon"></use>
+                    </svg>
+                </button>
+                <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar"
+                    aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                            aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body align-items-center justify-content-end">
+                        <ul class="navbar-nav mb-2 mb-lg-0 text-uppercase">
+                            <li class="nav-item px-3">
+                                <a class="nav-link active p-0" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="nav-link p-0" href="aboutus.html">About Us</a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="nav-link p-0" href="team.html">Team</a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="nav-link p-0" href="blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="nav-link p-0" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown px-3">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="nav-link p-0 dropdown-toggle">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li class="border-bottom"><a href="aboutus.html" class="dropdown-item">About us
+                                            <span class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="team.html" class="dropdown-item">Team <span
+                                                class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="blog.html" class="dropdown-item">Blog <span
+                                                class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="singlepost.html" class="dropdown-item">Single
+                                            Post <span class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="contact.html" class="dropdown-item">Contact us
+                                            <span class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="shop.html" class="dropdown-item">Shop <span
+                                                class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="singleproduct.html" class="dropdown-item">Single
+                                            Product <span class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="cart.html" class="dropdown-item">Cart <span
+                                                class="badge bg-primary">PRO</span></a></li>
+                                    <li class="border-bottom"><a href="checkout.html" class="dropdown-item">Checkout
+                                            <span class="badge bg-primary">PRO</span></a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="nav-link p-0 fw-bold text-uppercase text-decoration-underline"
+                                    href="https://templatesjungle.gumroad.com/l/kofee-cafe-html-bootstrap-website-template"
+                                    target="_blank">Get Pro</a>
+                            </li>
+                            <li class="nav-item ps-3 pe-0 search-dropdown dropdown">
+                                <a class="nav-link p-0 search dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                    role="button" aria-expanded="false">
+                                    <svg class="search" width="24" height="24">
+                                        <use xlink:href="#search"></use>
+                                    </svg>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end animate slide mt-3 border-0 p-3 shadow">
+                                    <li class="position-relative d-flex align-items-center p-0">
+                                        <input class="form-control me-2 shadow-none" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-primary position-absolute end-0" type="submit">
+                                            <svg class="search" width="24" height="24">
+                                                <use xlink:href="#search"></use>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="banner-content" class="position-relative">
+
+        <img src="img/hero-bg.png" alt="banner" class="img-fluid">
+
+        <div
+            class="container-md d-none d-lg-block border rounded-5 z-3 position-absolute start-50 top-md-100 translate-middle bg-danger">
+            <div class="row justify-content-center p-5 ">
+                <div class="col-md-6 border-end">
+                    <h3 class="display-5">Have a cup of coffee</h3>
+                    <p class="fs-5">Morbi justo vel diam non leo elementum massa. Molestie ipsum condimentum egestas
+                        vitae ut
+                        cras aenean aoreet odionis.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3 text-uppercase">Book a table</a>
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <h3 class="display-5">
+                        It’s a Kofee time
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="fs-5">
+                            Mon - Fri.....................6.00 am - 7.00 pm
+                        </li>
+                        <li class="fs-5">
+                            Sat - Sun......................7.00 am - 3.00 pm
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-md d-lg-none d-block border rounded-5 z-3 bg-danger margin-medium mb-0">
+            <div class="row justify-content-center p-5 ">
+                <div class="col-md-6 border-end mb-5 mb-md-0">
+                    <h3 class="display-5">Have a cup of coffee</h3>
+                    <p class="fs-5">Morbi justo vel diam non leo elementum massa. Molestie ipsum condimentum egestas
+                        vitae ut
+                        cras aenean aoreet odionis.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3 text-uppercase">Book a table</a>
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <h3 class="display-5">
+                        It’s a Kofee time
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="fs-5">
+                            Mon - Fri.....................6.00 am - 7.00 pm
+                        </li>
+                        <li class="fs-5">
+                            Sat - Sun......................7.00 am - 3.00 pm
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aboutus" class="padding-medium pb-5 mb-5 pb-lg-0">
+        <div class="container-md mt-lg-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/coffee bean.png" class="img-fluid">
+                </div>
+                <div class="col-md-6 align-content-center">
+                    <h3 class="display-1">
+                        About Us
+                    </h3>
+                    <div>
+                        <p>
+                            Welcome to Kofee Cafe, where we strive to provide a memorable coffee experience in a cozy
+                            and
+                            inviting atmosphere. At Kofee Cafe, we are passionate about serving artisanal coffee that
+                            delights the senses. Our expert baristas skillfully craft each cup, ensuring the perfect
+                            balance
+                            of flavors and aromas. Whether you're a coffee aficionado or a casual coffee lover, our
+                            diverse
+                            coffee selection, including classics like cappuccinos and lattes.
+                        </p>
+                        <a href="#" class="btn btn-primary mt-3 text-uppercase ">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="options">
+        <div class="container text-center">
+            <div class="row row-cols-lg-4">
+                <div class="col-md-3 my-3">
+                    <svg class="accent-color" width="60" height="60">
+                        <use xlink:href="#simple-icons--buymeacoffee"></use>
+                    </svg>
+                    <h5>
+                        Cozy Ambiance
+                    </h5>
+                    <p>
+                        Purus pulvinar feugiat orci dictumst ellentesque ut sem partu rient.
+                    </p>
+                </div>
+                <div class="col-md-3 my-3">
+                    <svg class="accent-color" width="60" height="60">
+                        <use xlink:href="#game-icons--coffee-pot"></use>
+                    </svg>
+                    <h5>
+                        Artisanal Coffee
+                    </h5>
+                    <p>
+                        Orci dictumst ellentesque ut sem partu rient purus pulvinar feugiat.
+                    </p>
+                </div>
+                <div class="col-md-3 my-3">
+                    <svg class="accent-color" width="60" height="60">
+                        <use xlink:href="#game-icons--coffee-cup"></use>
+                    </svg>
+                    <h5>
+                        Fresh Delights
+                    </h5>
+                    <p>
+                        Eugiat orci dictumst ellentesque ut sem purus pulvinar partu rient.
+                    </p>
+                </div>
+                <div class="col-md-3 my-3">
+                    <svg class="accent-color" width="60" height="60">
+                        <use xlink:href="#game-icons--coffee-beans"></use>
+                    </svg>
+                    <h5>
+                        Friendly Service
+                    </h5>
+                    <p>
+                        Dictumst ellentesque ut sem purus pulvinar feugiat orci partu rient.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="category" class="padding-medium">
+        <div class="container-fluid">
+            <div class="row text-center ">
+                <div class="col-md-4 my-3">
+                    <a href="#"> <img src="img/Limg-1.png" class="img-fluid border-0"> </a>
+                    <a href="#">
+                        <h3 class="display-6 p-2">
+                            pastries
+                        </h3>
+                    </a>
+                </div>
+                <div class="col-md-4 my-3">
+                    <a href="#"> <img src="img/Limg-2.png" class="img-fluid border-0"> </a>
+                    <a href="#">
+                        <h3 class="display-6 p-2">
+                            Tea Selection
+                        </h3>
+                    </a>
+                </div>
+                <div class="col-md-4 my-3">
+                    <a href="#"> <img src="img/Limg-3.png" class="img-fluid border-0"> </a>
+                    <a href="#">
+                        <h3 class="display-6 p-2">
+                            Coffee Selection
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <h2 class="display-1">
+                our menu
+            </h2>
+            <p>
+                Blandit enim pretium purus morbi non tincidunt auctor eu molestie. Vitae eu nullam tincidunt
+                accumsan.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="display-6">
+                                coffee selection
+                            </h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h5>
+                                        Espresso
+                                        <img src="img/espresso-line.png" class="align-baseline">
+                                        $2.99
+                                    </h5>
+                                    <p>
+                                        A strong and concentrated shot of coffee.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Americano
+                                        <img src="img/americano-lines.png" class="align-baseline">
+                                        $3.49
+                                    </h5>
+                                    <p>
+                                        A shot of espresso diluted with hot water.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Cappuccino
+                                        <img src="img/cappuccino-line.png" class="align-baseline">
+                                        $3.99
+                                    </h5>
+                                    <p>
+                                        Equal parts of espresso, steamed milk, and foam, topped with cocoa.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Latte
+                                        <img src="img/latte-line.png" class="align-baseline">
+                                        $4.49
+                                    </h5>
+                                    <p>
+                                        Creamy espresso with steamed milk and a thin layer of foam.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Mocha
+                                        <img src="img/mocha-line.png" class="align-baseline">
+                                        $4.99
+                                    </h5>
+                                    <p>
+                                        A delightful blend of espresso, chocolate, steamed milk, and great amazing
+                                        whipped cream.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Macadamia Nut Latte
+                                        <img src="img/macadamianut-line.png" class="align-baseline">
+                                        $3.99
+                                    </h5>
+                                    <p>
+                                        A nutty and indulgent latte with a hint of macadamia flavor.
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col py-3">
+                                    <h3 class="display-6">
+                                        Specialty Drinks
+                                    </h3>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <h5>
+                                                Vanilla Latte
+                                                <img src="img/vanillalatte-line.png" class="align-baseline">
+                                                $4.99
+                                            </h5>
+                                            <p>
+                                                A rich latte with a touch of sweet vanilla flavor.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Cold Brew
+                                                <img src="img/coldbrew-latte.png" class="align-baseline">
+                                                $3.49
+                                            </h5>
+                                            <p>
+                                                Smooth and strong coffee brewed slowly in cold water for a bold
+                                                taste.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Caramel Macchiato
+                                                <img src="img/caramelmachhiato-line.png" class="align-baseline">
+                                                $3.99
+                                            </h5>
+                                            <p>
+                                                Espresso with caramel, steamed milk, and foam.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Hazelnut Frappuccino
+                                                <img src="img/hazelnutfrappuccion-line.png" class="align-baseline">
+                                                $5.99
+                                            </h5>
+                                            <p>
+                                                Creamy espresso with steamed milk and a thin layer of foam.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Matcha Green Tea Latte
+                                                <img src="img/matchagreentealatte.png" class="align-baseline">
+                                                $4.99
+                                            </h5>
+                                            <p>
+                                                A creamy and earthy latte made with matcha green tea.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h3 class="display-6">
+                                Pastries
+                            </h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h5>
+                                        Muffin
+                                        <img src="img/muffin-line.png" class="align-baseline">
+                                        $3.49
+                                    </h5>
+                                    <p>
+                                        A freshly baked, moist, and flavorful breakfast treat.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Cinnamon Roll
+                                        <img src="img/cinnamonroll-line.png" class="align-baseline">
+                                        $3.99
+                                    </h5>
+                                    <p>
+                                        A sweet and gooey pastry swirled with cinnamon and icing.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Danish Pastry
+                                        <img src="img/danishpastry-line.png" class="align-baseline">
+                                        $4.49
+                                    </h5>
+                                    <p>
+                                        A light and airy pastry filled with various sweet fillings.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5>
+                                        Scone
+                                        <img src="img/scone-line.png" class="align-baseline">
+                                        $4.49
+                                    </h5>
+                                    <p>
+                                        A slightly sweet or savory biscuit-like pastry, perfect for a quick bite.
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col py-3">
+                                    <h3 class="display-6">
+                                        Snacks
+                                    </h3>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <h5>
+                                                Bagel with Cream Cheese
+                                                <img src="img/bagelwithcreamcheese-line.png" class="align-baseline">
+                                                $4.99
+                                            </h5>
+                                            <p>
+                                                A classic toasted bagel served with a creamy spread.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Granola Bar
+                                                <img src="img/granolabar-line.png" class="align-baseline">
+                                                $2.49
+                                            </h5>
+                                            <p>
+                                                A wholesome and energy-packed snack for on-the-go.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Fruit Cup
+                                                <img src="img/fruitcup-line.png" class="align-baseline">
+                                                $3.99
+                                            </h5>
+                                            <p>
+                                                A refreshing mix of seasonal fruits, perfect for a light snack.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col py-3">
+                                    <h3 class="display-6">
+                                        Extras
+                                    </h3>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <h5>
+                                                Extra Shot of Espresso
+                                                <img src="img/extrashotofespresso.png" class="align-baseline">
+                                                $0.49
+                                            </h5>
+                                            <p>
+                                                Add an extra kick of bold espresso to your drink.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Flavored Syrup
+                                                <img src="img/flavoredsyrup.png" class="align-baseline">
+                                                $0.49
+                                            </h5>
+                                            <p>
+                                                Enhance your beverage with a choice of delicious syrups.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Non-Dairy Milk (Almond, Soy, Oat)
+                                                <img src="img/nondairymilk.png" class="align-baseline">
+                                                $0.49
+                                            </h5>
+                                            <p>
+                                                Indulge in a dollop of creamy and sweet whipped topping.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Chocolate Drizzle
+                                                <img src="img/chocolatedrizzle.png" class="align-baseline">
+                                                $0.49
+                                            </h5>
+                                            <p>
+                                                Add a delightful touch of chocolate to your drink.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="padding-medium">
+        <div class="row g-0 align-items-center bg-info">
+            <div class="col-lg-6">
+                <img src="img/reservationg-bg.png" class="img-fluid">
+            </div>
+            <div class="col-lg-6 ">
+                <div class="p-5 m-5">
+                    <h3 class="display-1">
+                        Reservation
+                    </h3>
+                    <p>
+                        Blandit enim pretium purus morbi non tincidunt auctor eu molestie. Vitae eu nullam tincidunt
+                        accumsan.
+                    </p>
+                    <form class="row">
+                        <select
+                            class="form-select form-select-lg bg-transparent border-bottom border-0 shadow-none mb-3">
+                            <option selected>
+                                No of Person
+                            </option>
+                            <option value="1">
+                                1
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                        </select>
+                        <select
+                            class="form-select form-select-lg bg-transparent border-bottom border-0 shadow-none mb-3">
+                            <option selected>
+                                Date
+                            </option>
+                            <option value="1">
+                                1
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                        </select>
+                        <select
+                            class="form-select form-select-lg bg-transparent border-bottom border-0 shadow-none mb-3">
+                            <option selected>
+                                Time
+                            </option>
+                            <option value="1">
+                                11:00am
+                            </option>
+                            <option value="2">
+                                12:00pm
+                            </option>
+                            <option value="3">
+                                01:00pm
+                            </option>
+                            <option value="4">
+                                02:00pm
+                            </option>
+                            <option value="5">
+                                03:00pm
+                            </option>
+                            <option value="6">
+                                04:00pm
+                            </option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonial">
+        <div class="container text-center">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-1">
+                    <img src="img/dash.png" class="img-fluid d-flex justify-content-end">
+                </div>
+                <div class="col-lg-7">
+                    <div class="align-items-center">
+                        <div class="swiper testimonial-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide text-start">
+                                    <div class="offset-0 col-md-12">
+                                        <iconify-icon icon="mdi:format-quote-open"
+                                            class="testimonial-icon"></iconify-icon>
+                                        <h5 class="testimonial-paragraph fs-4 lh-base fw-light fst-italic">
+                                            "I absolutely love the cozy ambiance of this cafe!
+                                            The warm lighting, comfortable seating, and charming decor make it the
+                                            perfect place to unwind.
+                                            And the coffee? Simply divine! Every sip of their artisanal brews is a treat
+                                            for the taste buds.
+                                            Highly recommended!"
+                                        </h5>
+                                        <h6>Sarah Anderson</h6>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-start">
+                                    <div class="offset-0 col-md-12">
+                                        <iconify-icon icon="mdi:format-quote-open"
+                                            class="testimonial-icon"></iconify-icon>
+                                        <h5 class="testimonial-paragraph fs-4 lh-base fw-light fst-italic">
+                                            "I absolutely love the cozy ambiance of this cafe!
+                                            The warm lighting, comfortable seating, and charming decor make it the
+                                            perfect place to unwind.
+                                            And the coffee? Simply divine! Every sip of their artisanal brews is a treat
+                                            for the taste buds.
+                                            Highly recommended!"
+                                        </h5>
+                                        <h6>James Rodrigo</h6>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-start">
+                                    <div class="offset-0 col-md-12">
+                                        <iconify-icon icon="mdi:format-quote-open"
+                                            class="testimonial-icon"></iconify-icon>
+                                        <h5 class="testimonial-paragraph fs-4 lh-base fw-light fst-italic">
+                                            "I absolutely love the cozy ambiance of this cafe!
+                                            The warm lighting, comfortable seating, and charming decor make it the
+                                            perfect place to unwind.
+                                            And the coffee? Simply divine! Every sip of their artisanal brews is a treat
+                                            for the taste buds.
+                                            Highly recommended!"
+                                        </h5>
+                                        <h6>James Rodrigo</h6>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-start">
+                                    <div class="offset-0 col-md-12">
+                                        <iconify-icon icon="mdi:format-quote-open"
+                                            class="testimonial-icon"></iconify-icon>
+                                        <h5 class="testimonial-paragraph fs-4 lh-base fw-light fst-italic">
+                                            "I absolutely love the cozy ambiance of this cafe!
+                                            The warm lighting, comfortable seating, and charming decor make it the
+                                            perfect place to unwind.
+                                            And the coffee? Simply divine! Every sip of their artisanal brews is a treat
+                                            for the taste buds.
+                                            Highly recommended!"
+                                        </h5>
+                                        <h6>James Rodrigo</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination position-static text-start"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="padding-medium">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6">
+                    <h3 class="display-1">
+                        News Articles
+                    </h3>
+                    <h6 class="text-start fw-light">
+                        Blandit enim pretium purus morbi non tincidunt auctor eu molestie. Vitae eu nullam tincidunt
+                        accumsan.
+                    </h6>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="offset-lg-2 col-lg-8">
+
+                    <div class="row g-0 border-top py-3">
+                        <div class="col-4">
+                            <img src="img/news-1.png" class="img-fluid">
+                        </div>
+                        <div class="col-8 text-start align-content-center">
+                            <h6>
+                                Cafe
+                            </h6>
+                            <h5 class="fs-4">
+                                Exploring the Growing Trend and Art of Craft
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="row g-0 border-top border-bottom py-3">
+                        <div class="col-4">
+                            <img src="img/news-2.png" class="img-fluid">
+                        </div>
+                        <div class="col-8 text-start align-content-center">
+                            <h6>
+                                Topics
+                            </h6>
+                            <h5 class="fs-4">
+                                The Science Behind Your Daily Cup of Joy
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="row g-0 border-bottom py-3">
+                        <div class="col-4">
+                            <img src="img/news-3.png" class="img-fluid">
+                        </div>
+                        <div class="col-8 text-start align-content-center">
+                            <h6>
+                                Category
+                            </h6>
+                            <h5 class="fs-4">
+                                A Journey Through Different Brewing Methods
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="align-content-center text-center mt-5">
+                        <a href="#" class="btn btn-primary mt-3 text-uppercase">News articles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="row g-0">
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta1.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta2.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta3.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta4.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta5.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta7.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta8.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta9.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta10.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta11.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta12.jpg" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-2 p-2">
+                <a href="#">
+                    <img src="img/insta6.jpg" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands" class="padding-medium">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <img src="img/logo1.png" class="brand-img img-fluid">
+                </div>
+                <div class="col">
+                    <img src="img/logo2.png" class="brand-img img-fluid">
+                </div>
+                <div class="col">
+                    <img src="img/logo3.png" class="brand-img img-fluid">
+                </div>
+                <div class="col">
+                    <img src="img/logo4.png" class="brand-img img-fluid">
+                </div>
+                <div class="col">
+                    <img src="img/logo5.png" class="brand-img img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="padding-medium pt-0">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col">
+                            <img src="img/footer-logo.png" class="img-fluid">
+                            <p class="py-3">
+                                Blandit enim pretium purus morbi non tincidunt auctor eu molestie.
+                            </p>
+                            <ul class="d-flex gap-3 list-unstyled">
+                                <li>
+                                    <a class="p-0" href="#">
+                                        <svg class="social" width="24" height="24">
+                                            <use xlink:href="#ri--facebook-fill"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link p-0" href="#">
+                                        <svg class="social" width="24" height="24">
+                                            <use xlink:href="#mdi--instagram"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link p-0" href="#">
+                                        <svg class="social" width="24" height="24">
+                                            <use xlink:href="#mdi--twitter"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link p-0" href="#">
+                                        <svg class="social" width="24" height="24">
+                                            <use xlink:href="#ri--linkedin-fill"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link p-0" href="#">
+                                        <svg class="social" width="24" height="24">
+                                            <use xlink:href="#mdi--youtube"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled text-uppercase">
+                        <li>
+                            <a class="text-decoration-none" href="index.html">
+                                <h6>
+                                    Home
+                                </h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">
+                                <h6>
+                                    About us
+                                </h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">
+                                <h6>
+                                    Services
+                                </h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">
+                                <h6>
+                                    Help & Support
+                                </h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">
+                                <h6>
+                                    Contact
+                                </h6>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled text-uppercase">
+                        <li>
+                            <h6>
+                                address 1, location, 123
+
+                            </h6>
+                        </li>
+                        <li>
+                            <h6>
+                                address 1, location, 123
+
+                            </h6>
+                        </li>
+                        <li>
+                            <h6>
+                                address 1, location, 123
+
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled text-uppercase">
+                        <li>
+                            <h6>
+                                Yourinfo@mail.com
+                            </h6>
+                        </li>
+                        <li>
+                            <h6>
+                                address, location, 123
+                            </h6>
+                        </li>
+                        <li>
+                            <h6>
+                                111 222 333 444 555
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="border-top py-2 ">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center pt-3">
+                <p class="">© 2024 Kofee. Free Template By:<a href="https://templatesjungle.com/" class="website-link"
+                        target="_blank"> <b><u>TemplatesJungle</u></b></a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Script -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> <!--cdn link-->
+
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

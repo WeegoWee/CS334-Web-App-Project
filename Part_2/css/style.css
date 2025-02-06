@@ -1,0 +1,449 @@
+/*
+Theme Name: Kofee - Cafe Website Template
+Theme URI: https://templatesjungle.com/
+Author: TemplatesJungle
+Author URI: https://templatesjungle.com/
+Description: Kofee is specially designed product packaged for cafes by TemplatesJungle.
+Version: 1.1
+*/
+
+/*--------------------------------------------------------------
+This is main CSS file that contains custom style rules used in this template
+--------------------------------------------------------------*/
+
+/*------------------------------------*\
+    Table of contents
+\*------------------------------------*/
+
+/*------------------------------------------------
+
+CSS STRUCTURE:
+
+1. VARIABLES
+
+2. GENERAL TYPOGRAPHY
+  2.1 General Style
+  2.2 Section
+  2.3 Button
+  2.4 Badge
+  2.5 Form
+
+
+3. SITE STRUCTURE
+  3.1 Header Section
+  3.2 Brand Section
+
+4. Pages Style
+  4.1 Shop page
+
+    
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+
+:root {
+
+  --primary-color: #F5F4F2;
+  --secondary-color: #;
+  --accent-color: #EE8542;
+  --black-color: #393330;
+  --light-black-color: #;
+  --dark-color: #4F4844;
+  --body-color: #4F4844;
+  --gray-color: #EDEBE8;
+  --light-color: #;
+
+  /* Bootstrap Theme Color  */
+
+  --bs-border-color: #D2CFCC;
+  --bs-border-rgb: rgba(210, 207, 204);
+
+  --bs-primary: #F5F4F2;
+  --bs-secondary: #6c757d;
+  --bs-success: #D2CFCC;
+  --bs-info: #EDEBE8;
+  --bs-warning: #ffc107;
+  --bs-danger: #F5F4F2;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 245, 244, 242;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 210, 207, 204;
+  --bs-info-rgb: 237, 235, 232;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 245, 244, 242;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+
+
+  --swiper-theme-color: #EE8542;
+
+  /* a color */
+
+  --bs-link-color: #EE8542;
+  --bs-link-color-rgb: 238, 133, 66;
+  --bs-link-hover-color: #393330;
+  --bs-link-hover-color-rgb: 57, 51, 48;
+
+}
+
+/* Fonts */
+
+:root {
+  --heading-font: "Bebas Neue", sans-serif;
+  --body-font: "Source Serif 4", serif;
+}
+
+
+/*----------------------------------------------*/
+/* 2 GENERAL TYPOGRAPHY
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+/*----------------------------------------------*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: var(--primary-color);
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 164%;
+  letter-spacing: 0.32px;
+  color: var(--body-color);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+
+/*--------------------------------------------------------------
+/** 2.3 Section
+--------------------------------------------------------------*/
+
+/* - Section Title
+--------------------------------------------------------------*/
+h1,
+h2,
+h3 {
+  color: var(--black-color);
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.84px;
+  line-height: 115%;
+}
+
+
+/* - Section Padding
+--------------------------------------------------------------*/
+.padding-small {
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+.padding-medium {
+  padding-top: 9em;
+  padding-bottom: 9em;
+}
+
+.padding-large {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+
+@media (max-width: 999px) {
+  .padding-medium {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+}
+
+/* - Section Margin
+--------------------------------------------------------------*/
+.margin-small {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.margin-medium {
+  margin-top: 8em;
+  margin-bottom: 8em;
+}
+
+.margin-large {
+  margin-top: 12em;
+  margin-bottom: 12em;
+}
+
+
+.pagination {
+  --bs-pagination-active-bg: var(--black-color);
+  --bs-pagination-active-border-color: var(--black-color);
+}
+
+
+/* - Bootstrap button
+--------------------------------------------------------------*/
+
+.btn {
+  --bs-btn-padding-x: 2.5rem;
+  --bs-btn-padding-y: 0.8rem;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 60px;
+  letter-spacing: 0.1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #EE8542;
+  --bs-btn-border-color: #EE8542;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #393330;
+  --bs-btn-hover-border-color: #393330;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #0a58ca;
+  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-light {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #EE8542;
+  --bs-btn-border-color: #EE8542;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #393330;
+  --bs-btn-hover-border-color: #393330;
+  --bs-btn-focus-shadow-rgb: 211, 212, 213;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c6c7c8;
+  --bs-btn-active-border-color: #babbbc;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #f8f9fa;
+  --bs-btn-disabled-border-color: #f8f9fa;
+}
+
+.btn-dark {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #393330;
+  --bs-btn-border-color: #393330;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #EE8542;
+  --bs-btn-hover-border-color: #EE8542;
+  --bs-btn-focus-shadow-rgb: 66, 70, 73;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #4d5154;
+  --bs-btn-active-border-color: #373b3e;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #212529;
+  --bs-btn-disabled-border-color: #212529;
+}
+
+
+/* Badge
+------------------------------------------------------------- */
+.badge {
+  --bs-badge-color: #EE8542;
+}
+
+
+/* Form
+------------------------------------------------------------- */
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.form-check-input:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: 1px 3px 3px 1px rgba(121, 121, 121, 0.096);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--dark-color);
+  outline: 0;
+  box-shadow: 1px 3px 3px 1px rgba(121, 121, 121, 0.096);
+}
+
+input,
+select,
+textarea {
+  border-color: var(--dark-color);
+  outline: 0;
+  box-shadow: none;
+}
+
+select:focus {
+  box-shadow: none;
+}
+
+/*----------------------------------------------*/
+/* 3 SITE STRUCTURE */
+/*----------------------------------------------*/
+
+/* 3.1 Header Section
+/*----------------------------------------------*/
+
+.navbar-nav .nav-link {
+  color: var(--body-color);
+  font-weight: 400;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.focus {
+  color: var(--accent-color);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-color);
+  outline: none;
+}
+
+#primary-header .dropdown .search::after {
+  content: none;
+}
+
+#primary-header .search-dropdown .dropdown-menu {
+  width: 260px;
+}
+
+#primary-header .search-dropdown .dropdown-menu input {
+  min-width: 100%;
+}
+
+#primary-header .search-dropdown .dropdown-menu button {
+  padding: 0 12px;
+  min-height: -webkit-fill-available;
+  border-radius: 0.25rem;
+}
+
+
+/* 3.2 Brand Section
+/*----------------------------------------------*/
+img.brand-img {
+  filter: grayscale(100%);
+}
+
+img.brand-img:hover {
+  filter: grayscale(0%);
+}
+
+
+/*----------------------------------------------*/
+/* 4 Pages Styles */
+/*----------------------------------------------*/
+
+
+/* 4.1 Shop Page
+/*----------------------------------------------*/
+
+/* Product Card */
+.product-item .product-image img {
+  transition: 0.3s ease-out;
+}
+
+.product-item:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-image {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* btn cart */
+.product-item {
+  position: relative;
+}
+
+.product-item .btn-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  background-color: #fff;
+  padding: 20px;
+  text-transform: uppercase;
+  z-index: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.product-item:hover .btn-cart {
+  opacity: 1;
+}
+
+
+/* ------ Quantity ------*/
+.product-quantity .qty-number {
+  margin-right: 20px;
+}
+
+.product-quantity .input-group .btn {
+  height: 48px;
+  border: 1px solid #ccc;
+}
+
+.qty-number .quntity-button {
+  min-width: 40px;
+  height: 40px;
+  font-size: 1.8em;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--accent-dim-color);
+  transition: .5s all ease-in-out;
+}
+
+.qty-number .quntity-button:hover {
+  background-color: var(--accent-lit-color);
+}
+
+.qty-number input {
+  font-size: 1.4em;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  border-radius: 0;
+  border: 1px solid var(--dark-color);
+}
+
+.qty-field .regular-price {
+  display: none;
+}
