@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous" />
+		<link rel="stylesheet" href="/css/admin/dashboard.css" />
+
+		<title>IT-pot - Admin Dashboard</title>
+	</head>
+
+	<body>
+		<header class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/index.html">IT-pot</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<nav
+					class="collapse navbar-collapse"
+					id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="/index.html">Shop</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/index.html">Your cart</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/index.html">
+								Meet the team
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/index.html">
+								Contact us
+							</a>
+						</li>
+					</ul>
+
+					<button class="btn btn-outline-secondary" disabled>
+						In admin console
+					</button>
+				</nav>
+			</div>
+		</header>
+
+		<div class="d-flex">
+			<main class="container-xl mt-5">
+				<h1>Admin Dashboard</h1>
+
+				<section class="mt-4">
+					<h2>
+						Pending Orders
+						<button class="btn btn-outline-primary btn-sm mx-2">
+							View all
+						</button>
+					</h2>
+
+					<table class="table table-striped align-middle">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+
+								<th scope="col">Name</th>
+								<th scope="col">Items</th>
+								<th scope="col">Address</th>
+
+								<th scope="col">More info</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<th scope="row">02/22/2024 10:15 PM</th>
+
+								<td>Mark Otto</td>
+								<td>1</td>
+								<td>1500 S Avenue K - Portales, NM 88130</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										More info
+									</button>
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">02/22/2024 10:16 PM</th>
+
+								<td>Jacob Thornton</td>
+								<td>3</td>
+								<td>
+									1780 E University Ave - Las Cruces, NM 88003
+								</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										More info
+									</button>
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">02/22/2024 10:17 PM</th>
+
+								<td>Larry the Bird</td>
+								<td>2</td>
+								<td>
+									1155 University Blvd SE - Albuquerque, NM
+									87106
+								</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										More info
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<hr class="my-4" />
+
+				<section>
+					<h2>
+						Inventory
+						<button class="btn btn-outline-primary btn-sm mx-2">
+							View all
+						</button>
+					</h2>
+
+					<table class="table table-striped align-middle">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+
+								<th scope="col">Series</th>
+								<th scope="col">Name</th>
+
+								<th scope="col">No Caf.</th>
+
+								<th scope="col">Cold</th>
+
+								<th scope="col">Stock</th>
+								<th scope="col">Price</th>
+
+								<th scope="col">Edit</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<th scope="row">TM-EG-01</th>
+
+								<td>Milk Tea</td>
+								<td>Earl Grey Milk Tea & 3Js</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										disabled />
+								</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										checked
+										disabled />
+								</td>
+
+								<td>50</td>
+								<td>$6.90</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										Edit
+									</button>
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">TM-PL-02</th>
+
+								<td>Milk Tea</td>
+								<td>Pearl Milk Tea</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										disabled />
+								</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										disabled />
+								</td>
+
+								<td>47</td>
+								<td>$6.90</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										Edit
+									</button>
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">SH-PY-01</th>
+
+								<td>Slush</td>
+								<td>Passionfruit Yogurt</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										checked
+										disabled />
+								</td>
+
+								<td>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										checked
+										disabled />
+								</td>
+
+								<td>25</td>
+								<td>$6.90</td>
+
+								<td>
+									<button
+										class="btn btn-outline-primary btn-sm">
+										Edit
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<hr class="my-4" />
+
+				<section>
+					<h2>
+						Messages
+						<button class="btn btn-outline-primary btn-sm mx-2">
+							View all
+						</button>
+					</h2>
+
+					<div id="messages-container" class="my-4">
+						<div class="card card-body">
+							<h4 class="card-title">Luis Maldonado Ramírez</h4>
+
+							<a href="mailto:luisfern837@gmail.com">
+								luisfern837@gmail.com
+							</a>
+							<a href="tel:+524611381559"> +52 (461) 138 1559 </a>
+
+							<hr />
+
+							<p>
+								Message <br />
+								with multiple <br />
+								lines
+							</p>
+
+							<button class="btn btn-outline-danger">
+								Delete
+							</button>
+						</div>
+
+						<div class="card card-body">
+							<h4 class="card-title">Rigoberto Estrada Olivas</h4>
+
+							<a href="mailto:rigoberto.estradaolivas@enmu.edu">
+								rigoberto.estradaolivas@enmu.edu
+							</a>
+
+							<hr />
+
+							<p>Message</p>
+
+							<button class="btn btn-outline-danger">
+								Delete
+							</button>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<aside class="bg-body-secondary p-4">
+				<h4>Views</h4>
+
+				<ul id="views">
+					<li>
+						<a href="orders.html">Manage pending orders</a>
+					</li>
+
+					<li>
+						<a href="inventory.html">Manage items & inventory</a>
+					</li>
+
+					<li>
+						<a href="messages.html">Manage messages</a>
+					</li>
+
+					<li>
+						<a href="users.html">Manage users</a>
+					</li>
+				</ul>
+			</aside>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+	</body>
+</html>
