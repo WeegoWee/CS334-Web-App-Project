@@ -1,0 +1,34 @@
+#messages-container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+}
+
+#messages-container div {
+	max-width: 25rem;
+	padding: 1.5rem;
+}
+
+#messages-container p {
+	margin-bottom: 1.1rem;
+
+	line-height: 1.1rem;
+}
+
+#views {
+	padding: 0;
+
+	line-height: 1rem;
+
+	list-style-type: none;
+}
+
+#views li {
+	margin-bottom: 1rem;
+}
+
+#views a {
+	text-decoration: none;
+}
