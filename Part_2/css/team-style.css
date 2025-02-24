@@ -1,0 +1,95 @@
+body{
+    font-family: sans-serif;
+    display: inline-block;
+}
+
+.slogan{
+    display: inline-block;
+    line-height: 1.4;
+    padding-left: 600px;
+    padding-right: 500px;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #f8f8f8;
+
+}
+
+.team{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto); 
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 50px;
+}
+
+h2 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+article:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+figure img {
+    width: 90%; 
+    height: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 5px;
+}
+
+figcaption {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+header {
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #304c4f; 
+    color: white;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+h1 {
+    font-size: 5rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4a261;
+}
