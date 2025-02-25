@@ -1,0 +1,19 @@
+body {
+	min-height: 100vh;
+}
+
+#views {
+	padding: 0;
+
+	line-height: 1rem;
+
+	list-style-type: none;
+}
+
+#views li {
+	margin-bottom: 1rem;
+}
+
+#views a {
+	text-decoration: none;
+}
