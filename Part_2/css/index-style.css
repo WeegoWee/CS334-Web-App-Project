@@ -1,0 +1,29 @@
+.banner img {
+    max-height: 550px;
+    width: 100%;
+    height: auto;
+}
+
+.about {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.footer img {
+    max-height: 350px;
+    width: 30%;
+    height: auto;
+}
+
+.shop-button {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
