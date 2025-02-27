@@ -12,6 +12,7 @@
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
 		<link rel="stylesheet" href="/css/admin/all.css" />
+		<link rel="stylesheet" href="/css/admin/orders/edit.css" />
 
 		<title>IT-pot - Admin Dashboard</title>
 	</head>
@@ -62,113 +63,113 @@
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
-				<h1>Active Orders</h1>
+				<h1 class="mb-3">
+					Jacob Thornton's order
+					<small class="text-body-tertiary">
+						at 02/22/2024 10:16 PM
+					</small>
+				</h1>
 
-				<table class="table table-striped align-middle mt-4">
-					<thead>
-						<tr>
-							<th scope="col">Date</th>
+				<ul class="text-body-secondary fs-5 no-bullets">
+					<li>
+						<strong>Order ID:</strong>
+						123456
+					</li>
 
-							<th scope="col">Name</th>
-							<th scope="col">Items</th>
-							<th scope="col">Address</th>
-							<th scope="col">Status</th>
+					<li>
+						<strong>Delivery Address:</strong>
+						1780 E University Ave - Las Cruces, NM 88003
+					</li>
 
-							<th scope="col">More info</th>
-						</tr>
-					</thead>
+					<li>
+						<strong>Phone Number:</strong>
+						(575) 646-0111
+					</li>
 
-					<tbody>
-						<tr>
-							<td>02/22/2024 10:15 PM</td>
+					<li>
+						<strong>Status:</strong>
+						<b class="text-success">In transit</b>
+					</li>
+				</ul>
 
-							<td>Mark Otto</td>
-							<td>1</td>
-							<td>1500 S Avenue K - Portales, NM 88130</td>
-							<td><b class="text-success">In transit</b></td>
+				<hr class="my-4" />
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+				<section>
+					<h2 class="mb-4">Items</h2>
 
-						<tr>
-							<td>02/22/2024 10:16 PM</td>
+					<ul class="no-bullets">
+						<li class="card">
+							<div class="row g-0">
+								<div class="item-img-container">
+									<img
+										src="https://picsum.photos/768"
+										class="img-fluid rounded-start" />
+								</div>
 
-							<td>Jacob Thornton</td>
-							<td>3</td>
-							<td>
-								1780 E University Ave - Las Cruces, NM 88003
-							</td>
-							<td><b class="text-success">In transit</b></td>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">
+											Pearl Milk Tea
+											<small class="text-body-secondary">
+												x2
+											</small>
+										</h5>
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+										<p class="card-text">
+											<small class="text-body-secondary">
+												2xTM-PL-02
+											</small>
+										</p>
 
-						<tr>
-							<td>02/22/2024 10:17 PM</td>
+										<p class="card-text">
+											<strong>Observations:</strong>
+											No ice
+										</p>
+									</div>
+								</div>
+							</div>
+						</li>
 
-							<td>Larry the Bird</td>
-							<td>2</td>
-							<td>
-								1155 University Blvd SE - Albuquerque, NM 87106
-							</td>
-							<td><b class="text-warning">Preparing</b></td>
+						<li class="card">
+							<div class="row g-0">
+								<div class="item-img-container">
+									<img
+										src="https://picsum.photos/768"
+										class="img-fluid rounded-start" />
+								</div>
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">
+											Passionfruit Yogurt
+										</h5>
 
-						<tr>
-							<td>02/22/2024 10:18 PM</td>
+										<p class="card-text">
+											<small class="text-body-secondary">
+												SH-PY-01
+											</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
 
-							<td>Emma Thomas</td>
-							<td>1</td>
-							<td>1234 E Main St - Farmington, NM 87401</td>
-							<td><b class="text-warning">Preparing</b></td>
+					<hr class="my-4" />
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+					<section>
+						<h2 class="mb-4">Actions</h2>
 
-						<tr>
-							<td>02/22/2024 10:19 PM</td>
-
-							<td>John Doe</td>
-							<td>4</td>
-							<td>5678 N 1st St - Roswell, NM 88201</td>
-							<td><b class="text-danger">Pending</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+						<div class="d-flex gap-3">
+							<button class="btn btn-primary btn-lg">
+								Mark as delivered
+							</button>
+							<button class="btn btn-outline-danger btn-lg">
+								Cancel order
+							</button>
+						</div>
+					</section>
+				</section>
 			</main>
 
 			<aside class="bg-body-secondary p-4">
@@ -179,7 +180,9 @@
 						<a href="../dashboard.html">Main dashboard</a>
 					</li>
 
-					<li>Manage active orders</li>
+					<li>
+						<a href="index.html">Manage active orders</a>
+					</li>
 
 					<li>
 						<a href="../inventory.html">Manage items & inventory</a>
