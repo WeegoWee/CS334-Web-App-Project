@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch product data from the example products JSON file
-    fetch('data/products.json')
+    fetch('../data/products.json')
         .then(response => response.json()) // To convert the data to readable JSON.
         .then(products => {
 
