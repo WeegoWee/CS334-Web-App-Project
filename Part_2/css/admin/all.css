@@ -2,12 +2,14 @@ body {
 	min-height: 100vh;
 }
 
-#views {
+.no-bullets {
 	padding: 0;
 
-	line-height: 1rem;
-
 	list-style-type: none;
+}
+
+#views {
+	line-height: 1rem;
 }
 
 #views li {
