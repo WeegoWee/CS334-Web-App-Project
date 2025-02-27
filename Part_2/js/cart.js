@@ -19,7 +19,7 @@ function loadCart() {
 
     // Iterates through all of the items in the cart, and then compares to the products.json (to be replaced by database interaction) and multiplies quantity by price, and then creates a new table row to be displayed.
     cart.forEach(item => {
-        fetch(`data/products.json`)
+        fetch(`../data/products.json`)
             .then(response => response.json())
             .then(products => {
                 const product = products.find(p => p.id === item.id);
@@ -69,7 +69,7 @@ function setupPayment() {
 
         // Reload the page after 3 seconds to simulate order completion, and goes back to the shop page.
         setTimeout(() => {
-            window.location.href = "shop.html";
+            window.location.href = "../Shop/shop.html";
         }, 3000);
     });
 }
