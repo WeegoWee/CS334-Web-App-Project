@@ -62,7 +62,7 @@
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
-				<h1>Pending Orders</h1>
+				<h1>Active Orders</h1>
 
 				<table class="table table-striped align-middle mt-4">
 					<thead>
@@ -72,6 +72,7 @@
 							<th scope="col">Name</th>
 							<th scope="col">Items</th>
 							<th scope="col">Address</th>
+							<th scope="col">Status</th>
 
 							<th scope="col">More info</th>
 						</tr>
@@ -84,6 +85,7 @@
 							<td>Mark Otto</td>
 							<td>1</td>
 							<td>1500 S Avenue K - Portales, NM 88130</td>
+							<td><b class="text-success">In transit</b></td>
 
 							<td>
 								<button class="btn btn-outline-primary btn-sm">
@@ -100,6 +102,7 @@
 							<td>
 								1780 E University Ave - Las Cruces, NM 88003
 							</td>
+							<td><b class="text-success">In transit</b></td>
 
 							<td>
 								<button class="btn btn-outline-primary btn-sm">
@@ -116,6 +119,7 @@
 							<td>
 								1155 University Blvd SE - Albuquerque, NM 87106
 							</td>
+							<td><b class="text-warning">Preparing</b></td>
 
 							<td>
 								<button class="btn btn-outline-primary btn-sm">
@@ -130,6 +134,7 @@
 							<td>Emma Thomas</td>
 							<td>1</td>
 							<td>1234 E Main St - Farmington, NM 87401</td>
+							<td><b class="text-warning">Preparing</b></td>
 
 							<td>
 								<button class="btn btn-outline-primary btn-sm">
@@ -144,6 +149,7 @@
 							<td>John Doe</td>
 							<td>4</td>
 							<td>5678 N 1st St - Roswell, NM 88201</td>
+							<td><b class="text-danger">Pending</b></td>
 
 							<td>
 								<button class="btn btn-outline-primary btn-sm">
@@ -163,7 +169,7 @@
 						<a href="../dashboard.html">Main dashboard</a>
 					</li>
 
-					<li>Manage pending orders</li>
+					<li>Manage active orders</li>
 
 					<li>
 						<a href="../inventory.html">Manage items & inventory</a>
