@@ -11,6 +11,7 @@
 			rel="stylesheet"
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
+		<link rel="stylesheet" href="/css/admin/all.css" />
 		<link rel="stylesheet" href="/css/admin/dashboard.css" />
 
 		<title>IT-pot - Admin Dashboard</title>
@@ -42,7 +43,7 @@
 							<a class="nav-link" href="/index.html">Your cart</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">
+							<a class="nav-link" href="/team.html">
 								Meet the team
 							</a>
 						</li>
@@ -66,10 +67,12 @@
 
 				<section class="mt-4">
 					<h2>
-						Pending Orders
-						<button class="btn btn-outline-primary btn-sm mx-2">
+						Active Orders
+						<a
+							href="orders/index.html"
+							class="btn btn-outline-primary btn-sm mx-2">
 							View all
-						</button>
+						</a>
 					</h2>
 
 					<table class="table table-striped align-middle">
@@ -80,6 +83,7 @@
 								<th scope="col">Name</th>
 								<th scope="col">Items</th>
 								<th scope="col">Address</th>
+								<th scope="col">Status</th>
 
 								<th scope="col">More info</th>
 							</tr>
@@ -87,39 +91,43 @@
 
 						<tbody>
 							<tr>
-								<th scope="row">02/22/2024 10:15 PM</th>
+								<td>02/22/2024 10:15 PM</td>
 
 								<td>Mark Otto</td>
 								<td>1</td>
 								<td>1500 S Avenue K - Portales, NM 88130</td>
+								<td><b class="text-success">In transit</b></td>
 
 								<td>
-									<button
+									<a
+										href="orders/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										More info
-									</button>
+									</a>
 								</td>
 							</tr>
 
 							<tr>
-								<th scope="row">02/22/2024 10:16 PM</th>
+								<td>02/22/2024 10:16 PM</td>
 
 								<td>Jacob Thornton</td>
 								<td>3</td>
 								<td>
 									1780 E University Ave - Las Cruces, NM 88003
 								</td>
+								<td><b class="text-success">In transit</b></td>
 
 								<td>
-									<button
+									<a
+										href="orders/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										More info
-									</button>
+									</a>
 								</td>
 							</tr>
 
 							<tr>
-								<th scope="row">02/22/2024 10:17 PM</th>
+								<td>02/22/2024 10:17 PM</td>
 
 								<td>Larry the Bird</td>
 								<td>2</td>
@@ -127,12 +135,14 @@
 									1155 University Blvd SE - Albuquerque, NM
 									87106
 								</td>
+								<td><b class="text-warning">Preparing</b></td>
 
 								<td>
-									<button
+									<a
+										href="orders/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										More info
-									</button>
+									</a>
 								</td>
 							</tr>
 						</tbody>
@@ -320,11 +330,13 @@
 			</main>
 
 			<aside class="bg-body-secondary p-4">
-				<h4>Views</h4>
+				<h4 class="mb-3">Views</h4>
 
-				<ul id="views">
+				<ul id="views" class="no-bullets">
+					<li>Main dashboard</li>
+
 					<li>
-						<a href="orders.html">Manage pending orders</a>
+						<a href="orders/index.html">Manage active orders</a>
 					</li>
 
 					<li>
