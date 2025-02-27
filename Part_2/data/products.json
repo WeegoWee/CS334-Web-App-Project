@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Tea Option 1",
+        "price": 4.99,
+        "image": "../img/product1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Tea Option 3",
+        "price": 2.99,
+        "image": "../img/product2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Tea Option 3",
+        "price": 5.49,
+        "image": "../img/product3.jpg"
+    }
+]
