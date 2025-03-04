@@ -8,15 +8,15 @@ header {
     font-size: 1rem;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
     background-color: #C6FFAF; 
     color: rgb(0, 0, 0);
     width: 100%;
     box-sizing: border-box; 
 }
-h1 {
-    font-size: 3rem;
-    margin: 0;
+header img {
+    width: 30%;
+    object-fit: cover;
 }
 
 nav ul {
@@ -175,7 +175,7 @@ nav ul li a:hover {
     }
 }
 .footer {
-    max-width: 2100px;
+    width: 100%;
     background: #B9FFCC;
     background: -moz-linear-gradient(-45deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
     background: -webkit-linear-gradient(-45deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
@@ -277,4 +277,9 @@ nav ul li a:hover {
     .footer-col form button {
       margin: 10px 0 0 0;
     }
+  }
+  .footer img {
+    width: 25px; 
+    height: 25px;
+    vertical-align: middle;
   }
