@@ -69,7 +69,7 @@ function setupPayment() {
 
         // Reload the page after 3 seconds to simulate order completion, and goes back to the shop page.
         setTimeout(() => {
-            window.location.href = "../Shop/shop.html";
+            window.location.href = "../shop/index.html";
         }, 3000);
     });
 }
