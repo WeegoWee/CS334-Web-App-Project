@@ -8,9 +8,7 @@ header {
     font-size: 1rem;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 5px;
     background-color: #C6FFAF; 
     color: rgb(0, 0, 0);
     width: 100%;
@@ -176,6 +174,107 @@ nav ul li a:hover {
         height: 300px; 
     }
 }
-.footer{
+.footer {
+    max-width: 2100px;
+    background: #B9FFCC;
+    background: -moz-linear-gradient(-45deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
+    background: -webkit-linear-gradient(-45deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
+    background: linear-gradient(135deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
+    border-radius: 6px;
+  }
+  .footer .footer-row {
     display: flex;
-}
+    justify-content: space-between;
+    gap: 3.5rem;
+    padding: 10px;
+  }
+  .footer-row .footer-col h4 {
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .footer-col .links {
+    margin-top: 20px;
+  }
+  .footer-col .links li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  .footer-col .links li a {
+    text-decoration: none;
+    color: #000000;
+  }
+  .footer-col .links li a:hover {
+    color: #000000;
+  }
+  .footer-col p {
+    margin: 20px 0;
+    color: #000000;
+    max-width: 300px;
+  }
+  .footer-col form {
+    display: flex;
+    gap: 5px;
+  }
+  .footer-col input {
+    height: 40px;
+    border-radius: 6px;
+    background: none;
+    width: 100%;
+    outline: none;
+    border: 1px solid #7489C6 ;
+    caret-color: #fff;
+    color: #fff;
+    padding-left: 10px;
+  }
+  .footer-col input::placeholder {
+    color: #ccc;
+  }
+   .footer-col form button {
+    background: #fff;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+  }
+  .footer-col form button:hover {
+    background: #cecccc;
+  }
+  .footer-col .icons {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+    cursor: pointer;
+  }
+  .footer-col .icons i {
+    color: #afb6c7;
+  }
+  .footer-col .icons i:hover  {
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    .footer {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      transform: none;
+      width: 100%;
+      border-radius: 0;
+    }
+    .footer .footer-row {
+      padding: 20px;
+      gap: 1rem;
+    }
+    .footer-col form {
+      display: block;
+    }
+    .footer-col form :where(input, button) {
+      width: 100%;
+    }
+    .footer-col form button {
+      margin: 10px 0 0 0;
+    }
+  }
