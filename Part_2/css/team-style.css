@@ -33,6 +33,7 @@ h2 p{
 article {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    padding: 60px;
 }
 article:hover {
     transform: translateY(-10px); 
