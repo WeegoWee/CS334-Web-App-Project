@@ -63,22 +63,11 @@ body{
 
 
 article {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-=======
-=======
->>>>>>> Stashed changes
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   padding: 60px;
   background-color: #f9f9f9; 
   border-radius: 10px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 
 
