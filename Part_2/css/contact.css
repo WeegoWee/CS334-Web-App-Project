@@ -8,7 +8,7 @@ header {
     font-size: 1rem;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 1px 10px;
     background-color: #C6FFAF; 
     color: rgb(0, 0, 0);
     width: 100%;
@@ -52,15 +52,17 @@ nav ul li a:hover {
 }
 
 .contact-section {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-evenly;  
-    align-items: center;
-    gap: 50px; 
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #C6FFAF;
-    width: 100%;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 5%;
+  background-color: #C6FFAF;
+  background-size: cover;
+  width: 100%;
+  margin: 20px auto;
+  box-sizing: border-box;
 }
 
 .contact-item {
@@ -112,8 +114,8 @@ nav ul li a:hover {
 .contact-form {
     display: flex;
     flex-wrap: wrap;
-    width: 80%; 
-    max-width: 1200px; 
+    width: 100%; 
+    max-width: 1100px; 
     height: auto;
     min-height: 400px;
     justify-content: center;
@@ -181,6 +183,7 @@ nav ul li a:hover {
     background: -webkit-linear-gradient(-45deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
     background: linear-gradient(135deg, #B9FFCC 0%, #C4FEF2 64%, #C6FFAF 100%);
     border-radius: 6px;
+   
   }
   .footer .footer-row {
     display: flex;
@@ -191,7 +194,7 @@ nav ul li a:hover {
   .footer-row .footer-col h4 {
     color: #000000;
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 200;
   }
   .footer-col .links {
     margin-top: 20px;
@@ -210,11 +213,11 @@ nav ul li a:hover {
   .footer-col p {
     margin: 20px 0;
     color: #000000;
-    max-width: 300px;
+    max-width: 250px;
   }
   .footer-col form {
     display: flex;
-    gap: 5px;
+    gap: 10px;
   }
   .footer-col input {
     height: 40px;
@@ -225,7 +228,6 @@ nav ul li a:hover {
     border: 1px solid #7489C6 ;
     caret-color: #fff;
     color: #fff;
-    padding-left: 10px;
   }
   .footer-col input::placeholder {
     color: #ccc;
