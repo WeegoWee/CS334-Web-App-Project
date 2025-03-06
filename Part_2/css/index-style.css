@@ -1,12 +1,9 @@
-.banner img {
-    max-height: 550px;
-    width: 100%;
-    height: auto;
-}
+
+
 
 .about {
-    margin-top: 200px;
-    margin-bottom: 200px;
+    margin-top: 250px;
+    margin-bottom: 220px;
 }
 
 .footer img {
@@ -15,15 +12,287 @@
     height: auto;
 }
 
-.shop-button {
-    width: 100px;
-    margin: 0 auto;
+
+
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
 }
 
+.btn-primary:hover {
+        background-color: #003f7f;
+    transform: scale(1.05);
+}
+
+
+.popular-title {
+    font-size: 2.8rem; 
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: #333; 
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+
+.popular-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    background-color: #0056b3; 
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+
+
 .card {
-    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%; 
+    border: none; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); 
+}
+
+
+.card-img-top {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}
+
+
+.drink-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.shop-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.shop-button .btn-primary {
+    background-color: #0056b3;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.shop-button .btn-primary:hover {
+    background-color: #003f7f;
+    transform: scale(1.05);
+}
+
+
+.custom-navbar {
+    background-color: #c4fef2 !important;
+    padding: 10px 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 175%;
+    font-weight: 700;
+}
+.custom-navbar .navbar-brand {
+    color: #000000 !important;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.custom-navbar .nav-link {
+    color: #000000 !important;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+}
+.custom-navbar .nav-link:hover {
+    color: black !important;
+    transition: color 0.3s ease-in-out
+}
+/*home*/
+.custom-navbar .nav-item:nth-child(1) .nav-link:hover {
+    color: #c4fef2 !important; 
+}
+/*shop*/
+.custom-navbar .nav-item:nth-child(2) .nav-link:hover {
+    color: #b8ffe3 !important; 
+}
+/*team*/
+.custom-navbar .nav-item:nth-child(3) .nav-link:hover {
+    color: #b9ffcc !important; 
+}
+/*contact*/
+.custom-navbar .nav-item:nth-child(4) .nav-link:hover {
+    color: #c6ffaf !important; 
+}
+/*cart*/
+.custom-navbar .nav-item:nth-child(5) .nav-link:hover {
+    color: #cdff90 !important; 
+}
+/*admin*/
+.custom-navbar .nav-item:nth-child(6) .nav-link:hover {
+    color: #f9f871 !important; 
+}
+
+.custom-navbar .navbar-brand img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 10px;
+    display: block;
+    vertical-align: middle;
+}
+.custom-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+}
+.banner {
+    position: relative;
+    text-align: center;
+}
+
+.banner img {
+    max-height: 550px;
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 0;  
+    left: 50%;
+    transform: translate(-50%, 0); 
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    padding: 10px 0; 
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.banner-text p {
+    font-size: 1.2rem;
+}
+
+.footer {
+    position: relative;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23c6ffaf" fill-opacity="1" d="M0,192L60,181.3C120,171,240,149,360,122.7C480,96,600,64,720,48C840,32,960,32,1080,48C1200,64,1320,96,1380,112L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>') 
+        no-repeat center top;
+    background-size: cover;
+    padding-top: 200px;  
+    padding-bottom: 50px;
+    width: 100%;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+}
+
+
+.footer .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.footer .footer-logo {
+    max-height: 80px;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: black;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #000; 
+}
+
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #222; 
+}
+
+
+.footer-text {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+
+.footer .bottom-bar {
+    text-align: center;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 20px;
+}
+
+
+.Popular-items {
+    padding-top: 200px; 
+}
+.drink-description {
+    font-size: 0.9rem;
+    color: gray;
 }
