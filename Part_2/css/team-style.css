@@ -63,11 +63,8 @@ body{
 
 
 article {
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  padding: 60px;
-  background-color: #f9f9f9; 
-  border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 
