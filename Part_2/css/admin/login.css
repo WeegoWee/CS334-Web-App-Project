@@ -1,3 +1,66 @@
 #login-card {
 	max-width: 22rem;
+	position: relative;
+	justify-content: center;
+}
+.custom-navbar {
+    background-color: #c4fef2 !important;
+    padding: 10px 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 175%;
+    font-weight: 700;
+}
+.custom-navbar .navbar-brand {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.custom-navbar .nav-link {
+    color: #000000 !important;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+}
+.custom-navbar .nav-link:hover {
+    color: black !important;
+    transition: color 0.3s ease-in-out
+}
+/*home*/
+.custom-navbar .nav-item:nth-child(1) .nav-link:hover {
+    color: #c4fef2 !important; 
+}
+/*shop*/
+.custom-navbar .nav-item:nth-child(2) .nav-link:hover {
+    color: #b8ffe3 !important; 
+}
+/*team*/
+.custom-navbar .nav-item:nth-child(3) .nav-link:hover {
+    color: #b9ffcc !important; 
+}
+/*contact*/
+.custom-navbar .nav-item:nth-child(4) .nav-link:hover {
+    color: #c6ffaf !important; 
+}
+/*cart*/
+.custom-navbar .nav-item:nth-child(5) .nav-link:hover {
+    color: #cdff90 !important; 
+}
+/*admin*/
+.custom-navbar .nav-item:nth-child(6) .nav-link:hover {
+    color: #f9f871 !important; 
+}
+
+.custom-navbar .navbar-brand img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 10px;
+    display: block;
+    vertical-align: middle;
+}
+.custom-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
 }
