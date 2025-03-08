@@ -116,7 +116,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+button [type="submit"] {
     background-color: #28a745;
     color: white;
     border: none;
@@ -127,7 +127,7 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+button[type="submit"]:hover {
     background-color: #218838;
 }
 
