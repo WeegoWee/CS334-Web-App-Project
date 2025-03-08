@@ -49,6 +49,9 @@ body {
 
 	display: block;
 }
+aside {
+	background-color: #f9f87180;
+}
 
 #navbar,
 h1,
