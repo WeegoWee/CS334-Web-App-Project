@@ -1,175 +1,241 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The IT-Pot - Home</title>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/index-style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The IT-Pot - Home</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/index-style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<nav id="navbar" class="navbar navbar-expand-lg">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="..">
+				<img src="../img/logo/Logo_Text_Right.png" alt="Logo" />
+			</a>
 
-</head>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-<nav class="navbar navbar-expand-lg custom-navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="img/logo/Logo_Text_Right.png" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="shop/index.html">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="team/index.html">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact/index.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cart/index.html">Cart</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin/login.html">Admin</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Home</a>
+					</li>
 
-<header class="banner">
-    <img src="img\HKobo9Zd8vTYdFcb-generated_image.jpg" alt="Banner" class="img-fluid w-100">
-    <div class="banner-text">
-        <h1>Welcome to The IT-Pot</h1>
-        <p>Serving the finest teas, brewed with care and expertise.</p>
-    </div>
-</header>
+					<li class="nav-item">
+						<a class="nav-link" href="shop">Shop</a>
+					</li>
 
-<body>
-    <section class="Popular-items">
-        <div class="container my-5">
-            <h2 class="popular-title text-center mb-4">Popular Drinks</h2>
-            <div class="row justify-content-center">
-                
-                <div class="col-md-4">
-                    <div class="card h-100 text-center">
-                        <img src="img/pexels-ngo-tr-ng-an-837314-1717767.jpg" class="card-img-top" alt="Cinnamon Circuit">
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                            <h5 class="card-title">Cinnamon Circuit</h5>
-                            <p class="drink-description">A warm black tea blend with cinnamon and citrus notes.</p>
-                        </div>
-                    </div>
-                </div>
-    
-                
-                <div class="col-md-4">
-                    <div class="card h-100 text-center">
-                        <img src="img/pexels-nipananlifestyle-com-625927-1581484.jpg" class="card-img-top" alt="Matcha Byte">
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                            <h5 class="card-title">Matcha Byte</h5>
-                            <p class="drink-description">Smooth matcha latte with vanilla and honey.</p>
-                        </div>
-                    </div>
-                </div>
-    
-                
-                <div class="col-md-4">
-                    <div class="card h-100 text-center">
-                        <img src="img/pexels-pixabay-259955.jpg" class="card-img-top" alt="Debugger Detox">
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                            <h5 class="card-title">Debugger Detox</h5>
-                            <p class="drink-description">Refreshing green tea with mint and lemongrass.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            
-            <div class="shop-button py-4">
-                <a class="btn btn-primary btn-lg" href="shop/index.html" role="button">Shop Now</a>
-            </div>
-        </div>
-    </section>
-    
+					<li class="nav-item">
+						<a class="nav-link" href="team">Team</a>
+					</li>
 
-    <section class="about py-5 ">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <div class="about-img">
-                        <img src="img\about-img.png" class="img-fluid" alt="About">
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="about-heading">ABOUT US</h2>
-                    <p class="about-text">
-                        Welcome to IT-Pot, where we provide a relaxing tea experience with the finest selection of teas. Whether you're a tea connoisseur or just discovering new flavors, we have something for everyone. Our teas are brewed by the most experienced IT professionals,
-                        who have designed our custom blends to be palatable for the most refined tea pallet.
-                    </p>
-                    <a class="btn btn-primary" href="team/index.html" role="button">Meet The Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
+					<li class="nav-item">
+						<a class="nav-link" href="contact">Contact</a>
+					</li>
 
+					<li class="nav-item">
+						<a class="nav-link" href="cart">Cart</a>
+					</li>
 
-<footer class="footer">
-    <div class="footer-container">  
-        <div class="row text-center text-md-start">
-            
-            <div class="col-md-4">
-                <img src="img/logo/Logo.png" alt="Logo" class="footer-logo mb-2">
-                <div class="social-icons mt-2">
-                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.x.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+					<li class="nav-item">
+						<a class="nav-link" href="admin/login.html">Admin</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-           
-            <div class="col-md-4 mt-3 mt-md-0">
-                <h5 class="footer-heading">Links</h5>
-                <ul class="footer-links list-unstyled">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop/index.html">Shop</a></li>
-                    <li><a href="cart/index.html">Cart</a></li>
-                    <li><a href="team/index.html">Team</a></li>
-                    <li><a href="contact/index.html">Contact</a></li>
-                    <li><a href="admin/login.html">Admin Login</a></li>
-                </ul>
-            </div>
+	<header class="banner">
+		<img
+			src="img\HKobo9Zd8vTYdFcb-generated_image.jpg"
+			alt="Banner"
+			class="img-fluid w-100" />
+		<div class="banner-text">
+			<h1>Welcome to The IT-Pot</h1>
+			<p>Serving the finest teas, brewed with care and expertise.</p>
+		</div>
+	</header>
 
-          
-            <div class="col-md-4 mt-3 mt-md-0">
-                <h5 class="footer-heading">Contact Us</h5>
-                <p class="footer-text"><strong>info@it-pot.com</strong></p>
-                <p class="footer-text">1500 S Avenue K Station 32, Portales, NM 88130</p>
-                <p class="footer-text">1 555 555 555</p>
-            </div>
-        </div>
+	<body>
+		<section class="Popular-items">
+			<div class="container my-5">
+				<h2 class="popular-title text-center mb-4">Popular Drinks</h2>
+				<div class="row justify-content-center">
+					<div class="col-md-4">
+						<div class="card h-100 text-center">
+							<img
+								src="img/pexels-ngo-tr-ng-an-837314-1717767.jpg"
+								class="card-img-top"
+								alt="Cinnamon Circuit" />
+							<div
+								class="card-body d-flex flex-column justify-content-center align-items-center">
+								<h5 class="card-title">Cinnamon Circuit</h5>
+								<p class="drink-description">
+									A warm black tea blend with cinnamon and
+									citrus notes.
+								</p>
+							</div>
+						</div>
+					</div>
 
-        
-        <div class="row mt-3">
-            <div class="col text-center">
-                <p class="mb-0">&copy; 2024 The IT-Pot. All Rights Reserved.</p>
-            </div>
-        </div>
-    </div> 
-</footer>
+					<div class="col-md-4">
+						<div class="card h-100 text-center">
+							<img
+								src="img/pexels-nipananlifestyle-com-625927-1581484.jpg"
+								class="card-img-top"
+								alt="Matcha Byte" />
+							<div
+								class="card-body d-flex flex-column justify-content-center align-items-center">
+								<h5 class="card-title">Matcha Byte</h5>
+								<p class="drink-description">
+									Smooth matcha latte with vanilla and honey.
+								</p>
+							</div>
+						</div>
+					</div>
 
+					<div class="col-md-4">
+						<div class="card h-100 text-center">
+							<img
+								src="img/pexels-pixabay-259955.jpg"
+								class="card-img-top"
+								alt="Debugger Detox" />
+							<div
+								class="card-body d-flex flex-column justify-content-center align-items-center">
+								<h5 class="card-title">Debugger Detox</h5>
+								<p class="drink-description">
+									Refreshing green tea with mint and
+									lemongrass.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<div class="shop-button py-4">
+					<a
+						class="btn btn-primary btn-lg"
+						href="shop/index.html"
+						role="button"
+						>Shop Now</a
+					>
+				</div>
+			</div>
+		</section>
 
+		<section class="about py-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-5">
+						<div class="about-img">
+							<img
+								src="img\about-img.png"
+								class="img-fluid"
+								alt="About" />
+						</div>
+					</div>
+					<div class="col-md-7">
+						<h2 class="about-heading">ABOUT US</h2>
+						<p class="about-text">
+							Welcome to IT-Pot, where we provide a relaxing tea
+							experience with the finest selection of teas.
+							Whether you're a tea connoisseur or just discovering
+							new flavors, we have something for everyone. Our
+							teas are brewed by the most experienced IT
+							professionals, who have designed our custom blends
+							to be palatable for the most refined tea pallet.
+						</p>
+						<a
+							class="btn btn-primary"
+							href="team/index.html"
+							role="button"
+							>Meet The Team</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
 
+	<footer id="footer">
+		<div id="footer-content">
+			<div class="row text-center text-md-start">
+				<div class="col-md-4">
+					<img
+						src="img/logo/Logo.png"
+						alt="Logo"
+						id="footer-logo"
+						class="mb-2" />
+					<div id="social-icons" class="mt-2">
+						<a href="https://www.facebook.com" target="_blank"
+							><i class="fab fa-facebook"></i
+						></a>
+						<a href="https://www.instagram.com" target="_blank"
+							><i class="fab fa-instagram"></i
+						></a>
+						<a href="https://www.x.com" target="_blank"
+							><i class="fab fa-twitter"></i
+						></a>
+						<a href="https://www.linkedin.com" target="_blank"
+							><i class="fab fa-linkedin"></i
+						></a>
+						<a href="https://www.youtube.com" target="_blank"
+							><i class="fab fa-youtube"></i
+						></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 mt-3 mt-md-0">
+					<h5 class="footer-heading">Links</h5>
+					<ul id="footer-links" class="list-unstyled">
+						<li><a href="#">Home</a></li>
+						<li><a href="shop">Shop</a></li>
+						<li><a href="cart">Cart</a></li>
+						<li><a href="team">Team</a></li>
+						<li><a href="contact">Contact</a></li>
+						<li><a href="admin/login.html">Admin Login</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-4 mt-3 mt-md-0">
+					<h5 class="footer-heading">Contact Us</h5>
+					<p class="footer-text">
+						<strong>info@it-pot.com</strong>
+					</p>
+					<p class="footer-text">
+						1500 S Avenue K Station 32, Portales, NM 88130
+					</p>
+					<p class="footer-text">1 555 555 555</p>
+				</div>
+			</div>
+
+			<div class="row mt-3">
+				<div class="col text-center">
+					<p class="mb-0">
+						&copy; 2024 The IT-Pot. All Rights Reserved.
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </html>

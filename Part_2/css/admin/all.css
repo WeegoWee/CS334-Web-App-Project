@@ -4,56 +4,20 @@ body {
 
 #navbar {
 	background-color: #f9f871;
-
-	padding: 10px 30px;
-
-	font-size: 175%;
-	font-weight: 700;
-}
-
-#navbar .navbar-brand {
-	font-size: 1.5rem;
-
-	display: flex;
-	align-items: center;
-	gap: 10px;
 }
 
 #navbar .nav-link {
 	color: #414000;
-
-	padding: 10px 15px;
-
-	letter-spacing: 0.5px;
-
-	position: relative;
-	z-index: 10;
 }
 
 #navbar .nav-link:hover {
 	color: #9b9900;
-
-	transition: color 0.3s ease-in-out;
 }
 
-#navbar .navbar-nav {
-	display: flex;
-	align-items: center;
-}
-
-#navbar .navbar-brand img {
-	width: auto;
-	height: 50px;
-
-	margin-right: 10px;
-
-	display: block;
-}
 aside {
 	background-color: #f9f87180;
 }
 
-#navbar,
 h1,
 h2,
 h3,
