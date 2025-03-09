@@ -102,6 +102,12 @@ input:not(.textfield-seamless),
 	outline: none;
 }
 
+.textfield-seamless::placeholder {
+	color: inherit;
+
+	opacity: 0.5;
+}
+
 #item-image {
 	border-radius: 50px;
 
