@@ -108,6 +108,25 @@ input:not(.textfield-seamless),
 	box-shadow: 0px 8px 16px 4px #00000040;
 }
 
+#messages-container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+}
+
+#messages-container div {
+	max-width: 25rem;
+	padding: 1.5rem;
+}
+
+#messages-container p {
+	margin-bottom: 1.1rem;
+
+	line-height: 1.1rem;
+}
+
 #views {
 	line-height: 1rem;
 }
