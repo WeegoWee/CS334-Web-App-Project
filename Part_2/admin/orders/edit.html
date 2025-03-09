@@ -11,55 +11,61 @@
 			rel="stylesheet"
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
-		<link rel="stylesheet" href="/css/admin/all.css" />
-		<link rel="stylesheet" href="/css/admin/orders/edit.css" />
+		<link rel="stylesheet" href="../../css/admin/all.css" />
+		<link rel="stylesheet" href="../../css/admin/orders/edit.css" />
 
 		<title>IT-pot - Admin Dashboard</title>
 	</head>
 
 	<body class="d-flex flex-column">
-		<header class="navbar navbar-expand-lg bg-body-tertiary">
+		<nav id="navbar" class="navbar navbar-expand-lg">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index.html">IT-pot</a>
+				<a class="navbar-brand" href="../..">
+					<img src="../../img/logo/Logo_Text_Right.png" alt="Logo" />
+				</a>
+
 				<button
 					class="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
 					aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<nav
-					class="collapse navbar-collapse"
-					id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">Shop</a>
+							<a class="nav-link" href="../..">Home</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">Your cart</a>
+							<a class="nav-link" href="../../shop">Shop</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/team.html">
-								Meet the team
+							<a class="nav-link" href="../../team">Team</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../contact">
+								Contact
 							</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">
-								Contact us
-							</a>
+							<a class="nav-link" href="../../cart">Cart</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#">Admin</a>
 						</li>
 					</ul>
-
-					<button class="btn btn-outline-secondary" disabled>
-						In admin console
-					</button>
-				</nav>
+				</div>
 			</div>
-		</header>
+		</nav>
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
@@ -154,25 +160,25 @@
 							</div>
 						</li>
 					</ul>
+				</section>
 
-					<hr class="my-4" />
+				<hr class="my-4" />
 
-					<section>
-						<h2 class="mb-4">Actions</h2>
+				<section class="mb-4">
+					<h2 class="mb-4">Actions</h2>
 
-						<div class="d-flex gap-3">
-							<button class="btn btn-primary btn-lg">
-								Mark as delivered
-							</button>
-							<button class="btn btn-outline-danger btn-lg">
-								Cancel order
-							</button>
-						</div>
-					</section>
+					<div class="d-flex gap-3">
+						<button class="btn btn-primary btn-lg">
+							Mark as delivered
+						</button>
+						<button class="btn btn-outline-danger btn-lg">
+							Cancel order
+						</button>
+					</div>
 				</section>
 			</main>
 
-			<aside class="bg-body-secondary p-4">
+			<aside class="p-4">
 				<h4 class="mb-3">Views</h4>
 
 				<ul id="views" class="no-bullets">
@@ -181,19 +187,19 @@
 					</li>
 
 					<li>
-						<a href="index.html">Manage active orders</a>
+						<a href=".">Manage active orders</a>
 					</li>
 
 					<li>
-						<a href="../inventory.html">Manage items & inventory</a>
+						<a href="../inventory">Manage items & inventory</a>
 					</li>
 
 					<li>
-						<a href="../messages.html">Manage messages</a>
+						<a href="../messages">Manage messages</a>
 					</li>
 
 					<li>
-						<a href="../users.html">Manage users</a>
+						<a href="../users">Manage users</a>
 					</li>
 				</ul>
 			</aside>

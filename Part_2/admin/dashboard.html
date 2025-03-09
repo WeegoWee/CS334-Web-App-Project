@@ -11,57 +11,60 @@
 			rel="stylesheet"
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
-		<link rel="stylesheet" href="/css/admin/all.css" />
-		<link rel="stylesheet" href="/css/admin/dashboard.css" />
+		<link rel="stylesheet" href="../css/admin/all.css" />
 
 		<title>IT-pot - Admin Dashboard</title>
 	</head>
 
-	<body>
-		<header class="navbar navbar-expand-lg bg-body-tertiary">
+	<body class="d-flex flex-column">
+		<nav id="navbar" class="navbar navbar-expand-lg">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index.html">IT-pot</a>
+				<a class="navbar-brand" href="..">
+					<img src="../img/logo/Logo_Text_Right.png" alt="Logo" />
+				</a>
+
 				<button
 					class="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
 					aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<nav
-					class="collapse navbar-collapse"
-					id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">Shop</a>
+							<a class="nav-link" href="..">Home</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">Your cart</a>
+							<a class="nav-link" href="../shop">Shop</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/team.html">
-								Meet the team
-							</a>
+							<a class="nav-link" href="../team">Team</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="/index.html">
-								Contact us
-							</a>
+							<a class="nav-link" href="../contact">Contact</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../cart">Cart</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#">Admin</a>
 						</li>
 					</ul>
-
-					<button class="btn btn-outline-secondary" disabled>
-						In admin console
-					</button>
-				</nav>
+				</div>
 			</div>
-		</header>
+		</nav>
 
-		<div class="d-flex">
+		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
 				<h1>Admin Dashboard</h1>
 
@@ -69,8 +72,8 @@
 					<h2>
 						Active Orders
 						<a
-							href="orders/index.html"
-							class="btn btn-outline-primary btn-sm mx-2">
+							href="orders"
+							class="btn btn-outline-primary btn-sm ms-2">
 							View all
 						</a>
 					</h2>
@@ -154,9 +157,16 @@
 				<section>
 					<h2>
 						Inventory
-						<button class="btn btn-outline-primary btn-sm mx-2">
+						<a
+							href="inventory"
+							class="btn btn-outline-primary btn-sm ms-2">
 							View all
-						</button>
+						</a>
+						<a
+							href="inventory/new-item.html"
+							class="btn btn-outline-success btn-sm">
+							New item
+						</a>
 					</h2>
 
 					<table class="table table-striped align-middle">
@@ -204,10 +214,11 @@
 								<td>$6.90</td>
 
 								<td>
-									<button
+									<a
+										href="inventory/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										Edit
-									</button>
+									</a>
 								</td>
 							</tr>
 
@@ -235,10 +246,11 @@
 								<td>$6.90</td>
 
 								<td>
-									<button
+									<a
+										href="inventory/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										Edit
-									</button>
+									</a>
 								</td>
 							</tr>
 
@@ -268,10 +280,11 @@
 								<td>$6.90</td>
 
 								<td>
-									<button
+									<a
+										href="inventory/edit.html"
 										class="btn btn-outline-primary btn-sm">
 										Edit
-									</button>
+									</a>
 								</td>
 							</tr>
 						</tbody>
@@ -283,7 +296,7 @@
 				<section>
 					<h2>
 						Messages
-						<button class="btn btn-outline-primary btn-sm mx-2">
+						<button class="btn btn-outline-primary btn-sm ms-2">
 							View all
 						</button>
 					</h2>
@@ -292,8 +305,8 @@
 						<div class="card card-body">
 							<h4 class="card-title">Luis Maldonado Ramírez</h4>
 
-							<a href="mailto:luisfern837@gmail.com">
-								luisfern837@gmail.com
+							<a href="mailto:luis.maldonadoramirez@enmu.edu">
+								luis.maldonadoramirez@enmu.edu
 							</a>
 							<a href="tel:+524611381559"> +52 (461) 138 1559 </a>
 
@@ -303,6 +316,37 @@
 								Message <br />
 								with multiple <br />
 								lines
+							</p>
+
+							<button class="btn btn-outline-danger">
+								Delete
+							</button>
+						</div>
+
+						<div class="card card-body">
+							<h4 class="card-title">Eduardo Ceh-Varela</h4>
+
+							<a href="mailto:eduardo.ceh@enmu.edu">
+								eduardo.ceh@enmu.edu
+							</a>
+
+							<hr />
+
+							<p>
+								Hello everyone, <br />
+								<br />
+
+								I will give a talk in Albuquerque this Friday,
+								03/07/2025, so we won't have class that day.
+								<br />
+								However, I will record the lecture when I return
+								to Portales. <br />
+								There won't be attendance for this lecture, but
+								please watch it when posted to keep track of our
+								topics. <br />
+								<br />
+
+								Have a good Spring break.
 							</p>
 
 							<button class="btn btn-outline-danger">
@@ -329,26 +373,26 @@
 				</section>
 			</main>
 
-			<aside class="bg-body-secondary p-4">
+			<aside class="p-4">
 				<h4 class="mb-3">Views</h4>
 
 				<ul id="views" class="no-bullets">
 					<li>Main dashboard</li>
 
 					<li>
-						<a href="orders/index.html">Manage active orders</a>
+						<a href="orders">Manage active orders</a>
 					</li>
 
 					<li>
-						<a href="inventory.html">Manage items & inventory</a>
+						<a href="inventory">Manage items & inventory</a>
 					</li>
 
 					<li>
-						<a href="messages.html">Manage messages</a>
+						<a href="messages">Manage messages</a>
 					</li>
 
 					<li>
-						<a href="users.html">Manage users</a>
+						<a href="users">Manage users</a>
 					</li>
 				</ul>
 			</aside>

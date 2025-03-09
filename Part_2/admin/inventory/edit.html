@@ -12,6 +12,7 @@
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
 		<link rel="stylesheet" href="../../css/admin/all.css" />
+		<link rel="stylesheet" href="../../css/admin/orders/edit.css" />
 
 		<title>IT-pot - Admin Dashboard</title>
 	</head>
@@ -68,113 +69,93 @@
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
-				<h1>Active Orders</h1>
+				<h1 class="mb-3">
+					<input
+						type="text"
+						class="textfield-seamless"
+						value="Earl Grey Milk Tea & 3Js" />
 
-				<table class="table table-striped align-middle mt-4">
-					<thead>
-						<tr>
-							<th scope="col">Date</th>
+					<small class="text-body-tertiary">
+						$<input
+							type="number"
+							class="textfield-seamless"
+							value="6.90" />
+					</small>
+				</h1>
 
-							<th scope="col">Name</th>
-							<th scope="col">Items</th>
-							<th scope="col">Address</th>
-							<th scope="col">Status</th>
+				<ul class="text-body-secondary fs-5 no-bullets">
+					<li>
+						<strong>Item ID:</strong>
+						<input
+							type="text"
+							class="textfield-seamless"
+							value="TM-EG-01" />
+					</li>
 
-							<th scope="col">More info</th>
-						</tr>
-					</thead>
+					<li>
+						<strong>Series:</strong>
+						<input
+							type="text"
+							class="textfield-seamless"
+							value="Milk Tea" />
+					</li>
 
-					<tbody>
-						<tr>
-							<td>02/22/2024 10:15 PM</td>
+					<li>
+						<strong>No-Caffeine Item:</strong>
+						<input type="checkbox" class="form-check-input ms-1" />
+					</li>
 
-							<td>Mark Otto</td>
-							<td>1</td>
-							<td>1500 S Avenue K - Portales, NM 88130</td>
-							<td><b class="text-success">In transit</b></td>
+					<li>
+						<strong>Cold Item:</strong>
+						<input
+							type="checkbox"
+							class="form-check-input ms-1"
+							checked />
+					</li>
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+					<li>
+						<strong>Stock:</strong>
+						<input
+							type="number"
+							class="textfield-seamless"
+							value="50" />
+					</li>
+				</ul>
 
-						<tr>
-							<td>02/22/2024 10:16 PM</td>
+				<div class="d-flex justify-content-end gap-3">
+					<a href="." class="btn btn-outline-secondary btn-lg">
+						Cancel
+					</a>
+					<a href="." class="btn btn-primary btn-lg">Save changes</a>
+				</div>
 
-							<td>Jacob Thornton</td>
-							<td>3</td>
-							<td>
-								1780 E University Ave - Las Cruces, NM 88003
-							</td>
-							<td><b class="text-success">In transit</b></td>
+				<hr class="my-4" />
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+				<section>
+					<h2 class="mb-4">Item Image</h2>
 
-						<tr>
-							<td>02/22/2024 10:17 PM</td>
+					<div class="d-flex justify-content-center">
+						<img id="item-image" src="https://picsum.photos/500" />
+					</div>
 
-							<td>Larry the Bird</td>
-							<td>2</td>
-							<td>
-								1155 University Blvd SE - Albuquerque, NM 87106
-							</td>
-							<td><b class="text-warning">Preparing</b></td>
+					<div class="d-flex justify-content-end gap-3">
+						<button class="btn btn-outline-primary btn-lg">
+							Upload new image
+						</button>
+					</div>
+				</section>
 
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
+				<hr class="my-4" />
 
-						<tr>
-							<td>02/22/2024 10:18 PM</td>
+				<section class="mb-4">
+					<h2 class="mb-4">Other actions</h2>
 
-							<td>Emma Thomas</td>
-							<td>1</td>
-							<td>1234 E Main St - Farmington, NM 87401</td>
-							<td><b class="text-warning">Preparing</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td>02/22/2024 10:19 PM</td>
-
-							<td>John Doe</td>
-							<td>4</td>
-							<td>5678 N 1st St - Roswell, NM 88201</td>
-							<td><b class="text-danger">Pending</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+					<div class="d-flex gap-3">
+						<a href="." class="btn btn-danger btn-lg">
+							Mark as discontinued
+						</a>
+					</div>
+				</section>
 			</main>
 
 			<aside class="p-4">
@@ -185,10 +166,12 @@
 						<a href="../dashboard.html">Main dashboard</a>
 					</li>
 
-					<li>Manage active orders</li>
+					<li>
+						<a href="../orders">Manage active orders</a>
+					</li>
 
 					<li>
-						<a href="../inventory">Manage items & inventory</a>
+						<a href=".">Manage items & inventory</a>
 					</li>
 
 					<li>
