@@ -70,110 +70,90 @@
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
 				<h1 class="mb-3">
-					Jacob Thornton's order
+					<input
+						type="text"
+						class="textfield-seamless"
+						value="Earl Grey Milk Tea & 3Js" />
+
 					<small class="text-body-tertiary">
-						at 02/22/2024 10:16 PM
+						$<input
+							type="number"
+							class="textfield-seamless"
+							value="6.90" />
 					</small>
 				</h1>
 
 				<ul class="text-body-secondary fs-5 no-bullets">
 					<li>
-						<strong>Order ID:</strong>
-						123456
+						<strong>Item ID:</strong>
+						<input
+							type="text"
+							class="textfield-seamless"
+							value="TM-EG-01" />
 					</li>
 
 					<li>
-						<strong>Delivery Address:</strong>
-						1780 E University Ave - Las Cruces, NM 88003
+						<strong>Series:</strong>
+						<input
+							type="text"
+							class="textfield-seamless"
+							value="Milk Tea" />
 					</li>
 
 					<li>
-						<strong>Phone Number:</strong>
-						(575) 646-0111
+						<strong>No-Caffeine Item:</strong>
+						<input type="checkbox" class="form-check-input ms-1" />
 					</li>
 
 					<li>
-						<strong>Status:</strong>
-						<b class="text-success">In transit</b>
+						<strong>Cold Item:</strong>
+						<input
+							type="checkbox"
+							class="form-check-input ms-1"
+							checked />
+					</li>
+
+					<li>
+						<strong>Stock:</strong>
+						<input
+							type="number"
+							class="textfield-seamless"
+							value="50" />
 					</li>
 				</ul>
+
+				<div class="d-flex justify-content-end gap-3">
+					<a href="." class="btn btn-outline-secondary btn-lg">
+						Cancel
+					</a>
+					<a href="." class="btn btn-primary btn-lg">Save changes</a>
+				</div>
 
 				<hr class="my-4" />
 
 				<section>
-					<h2 class="mb-4">Items</h2>
+					<h2 class="mb-4">Item Image</h2>
 
-					<ul class="no-bullets">
-						<li class="card">
-							<div class="row g-0">
-								<div class="item-img-container">
-									<img
-										src="https://picsum.photos/768"
-										class="img-fluid rounded-start" />
-								</div>
+					<div class="d-flex justify-content-center">
+						<img id="item-image" src="https://picsum.photos/500" />
+					</div>
 
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">
-											Pearl Milk Tea
-											<small class="text-body-secondary">
-												x2
-											</small>
-										</h5>
-
-										<p class="card-text">
-											<small class="text-body-secondary">
-												2xTM-PL-02
-											</small>
-										</p>
-
-										<p class="card-text">
-											<strong>Observations:</strong>
-											No ice
-										</p>
-									</div>
-								</div>
-							</div>
-						</li>
-
-						<li class="card">
-							<div class="row g-0">
-								<div class="item-img-container">
-									<img
-										src="https://picsum.photos/768"
-										class="img-fluid rounded-start" />
-								</div>
-
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">
-											Passionfruit Yogurt
-										</h5>
-
-										<p class="card-text">
-											<small class="text-body-secondary">
-												SH-PY-01
-											</small>
-										</p>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
+					<div class="d-flex justify-content-end gap-3">
+						<button class="btn btn-outline-primary btn-lg">
+							Upload new image
+						</button>
+					</div>
 				</section>
 
 				<hr class="my-4" />
 
 				<section class="mb-4">
-					<h2 class="mb-4">Actions</h2>
+					<h2 class="mb-4">Other actions</h2>
 
 					<div class="d-flex gap-3">
-						<button class="btn btn-primary btn-lg">
-							Mark as delivered
-						</button>
-						<button class="btn btn-outline-danger btn-lg">
-							Cancel order
-						</button>
+						<a href="." class="btn btn-danger btn-lg">
+							Mark as discontinued
+						</a>
 					</div>
 				</section>
 			</main>
@@ -187,11 +167,11 @@
 					</li>
 
 					<li>
-						<a href=".">Manage active orders</a>
+						<a href="../orders">Manage active orders</a>
 					</li>
 
 					<li>
-						<a href="../inventory">Manage items & inventory</a>
+						<a href=".">Manage items & inventory</a>
 					</li>
 
 					<li>

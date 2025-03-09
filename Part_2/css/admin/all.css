@@ -60,7 +60,13 @@ h3,
 h4,
 h5,
 h6,
-input,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+input:not(.textfield-seamless),
 .btn {
 	font-family: "JetBrains Mono", monospace;
 }
@@ -68,6 +74,38 @@ input,
 .card {
 	border: none;
 	box-shadow: 0px 6px 12px 3px #00000030;
+}
+
+.textfield-seamless {
+	color: inherit;
+
+	padding: 0;
+	border: none;
+	border-radius: 10px;
+
+	font-weight: inherit;
+
+	display: inline-block;
+
+	field-sizing: content;
+	resize: none;
+	overflow: hidden;
+}
+
+.textfield-seamless:hover {
+	background-color: #f9f87180;
+}
+
+.textfield-seamless:focus-visible {
+	background-color: #f9f871;
+	color: #414000;
+	outline: none;
+}
+
+#item-image {
+	border-radius: 50px;
+
+	box-shadow: 0px 8px 16px 4px #00000040;
 }
 
 #views {
