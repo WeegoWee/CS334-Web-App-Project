@@ -116,7 +116,7 @@ input {
     border-radius: 5px;
 }
 
-button [type="submit"] {
+button[type="submit"] {
     background-color: #28a745;
     color: white;
     border: none;
