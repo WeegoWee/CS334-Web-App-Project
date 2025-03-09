@@ -1,100 +1,142 @@
 <!-- Griffin Graham -->
 <!DOCTYPE html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+	rel="stylesheet" />
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/shop-style.css">
-    <title>The IT-Pot - Shop</title>
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg custom-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">
-                    <img src="../img/logo/Logo_Text_Right.png" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../team/index.html">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contact/index.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../cart/index.html">Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../admin/login.html">Admin</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- The below is what creates the grid necessary for the shop items to demonstrate, more details in shop.js -->
-    <main>
-        <div class="products" id="products"></div>
-    </main>
-    <script src="../js/shop.js"></script>
-    <footer class="footer">
-        <div class="footer-container">  
-            <div class="row text-center text-md-start">
-                
-                <div class="col-md-4">
-                    <img src="../img/logo/Logo.png" alt="Logo" class="footer-logo mb-2">
-                    <div class="social-icons mt-2">
-                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.x.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-    
-               
-                <div class="col-md-4 mt-3 mt-md-0">
-                    <h5 class="footer-heading">Links</h5>
-                    <ul class="footer-links list-unstyled">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="index.html">Shop</a></li>
-                        <li><a href="../cart/index.html">Cart</a></li>
-                        <li><a href="../team/index.html">Team</a></li>
-                        <li><a href="../contact/index.html">Contact</a></li>
-                        <li><a href="../admin/login.html">Admin Login</a></li>
-                    </ul>
-                </div>
-    
-              
-                <div class="col-md-4 mt-3 mt-md-0">
-                    <h5 class="footer-heading">Contact Us</h5>
-                    <p class="footer-text"><strong>info@it-pot.com</strong></p>
-                    <p class="footer-text">1500 S Avenue K Station 32, Portales, NM 88130</p>
-                    <p class="footer-text">1 555 555 555</p>
-                </div>
-            </div>
-    
-            
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <p class="mb-0">&copy; 2024 The IT-Pot. All Rights Reserved.</p>
-                </div>
-            </div>
-        </div> 
-    </footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/shop-style.css" />
+		<title>The IT-Pot - Shop</title>
+	</head>
+	<body>
+		<header>
+			<nav id="navbar" class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="..">
+						<img src="../img/logo/Logo_Text_Right.png" alt="Logo" />
+					</a>
+
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="..">Home</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="#">Shop</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="../team">Team</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="../contact">
+									Contact
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="../cart">Cart</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="../admin/login.html">
+									Admin
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- The below is what creates the grid necessary for the shop items to demonstrate, more details in shop.js -->
+		<main>
+			<div class="products" id="products"></div>
+		</main>
+		<script src="../js/shop.js"></script>
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="row text-center text-md-start">
+					<div class="col-md-4">
+						<img
+							src="../img/logo/Logo.png"
+							alt="Logo"
+							class="footer-logo mb-2" />
+						<div class="social-icons mt-2">
+							<a href="https://www.facebook.com" target="_blank"
+								><i class="fab fa-facebook"></i
+							></a>
+							<a href="https://www.instagram.com" target="_blank"
+								><i class="fab fa-instagram"></i
+							></a>
+							<a href="https://www.x.com" target="_blank"
+								><i class="fab fa-twitter"></i
+							></a>
+							<a href="https://www.linkedin.com" target="_blank"
+								><i class="fab fa-linkedin"></i
+							></a>
+							<a href="https://www.youtube.com" target="_blank"
+								><i class="fab fa-youtube"></i
+							></a>
+						</div>
+					</div>
+
+					<div class="col-md-4 mt-3 mt-md-0">
+						<h5 class="footer-heading">Links</h5>
+						<ul class="footer-links list-unstyled">
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="index.html">Shop</a></li>
+							<li><a href="../cart/index.html">Cart</a></li>
+							<li><a href="../team/index.html">Team</a></li>
+							<li><a href="../contact/index.html">Contact</a></li>
+							<li>
+								<a href="../admin/login.html">Admin Login</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4 mt-3 mt-md-0">
+						<h5 class="footer-heading">Contact Us</h5>
+						<p class="footer-text">
+							<strong>info@it-pot.com</strong>
+						</p>
+						<p class="footer-text">
+							1500 S Avenue K Station 32, Portales, NM 88130
+						</p>
+						<p class="footer-text">1 555 555 555</p>
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col text-center">
+						<p class="mb-0">
+							&copy; 2024 The IT-Pot. All Rights Reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>
