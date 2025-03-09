@@ -129,27 +129,27 @@
 }
 /*home*/
 .custom-navbar .nav-item:nth-child(1) .nav-link:hover {
-    color: #c4fef2 !important; 
+    color: #008e71 !important; 
 }
 /*shop*/
 .custom-navbar .nav-item:nth-child(2) .nav-link:hover {
-    color: #b8ffe3 !important; 
+    color: #008953 !important; 
 }
 /*team*/
 .custom-navbar .nav-item:nth-child(3) .nav-link:hover {
-    color: #b9ffcc !important; 
+    color: #008c26 !important; 
 }
 /*contact*/
 .custom-navbar .nav-item:nth-child(4) .nav-link:hover {
-    color: #c6ffaf !important; 
+    color: #2a9000 !important; 
 }
 /*cart*/
 .custom-navbar .nav-item:nth-child(5) .nav-link:hover {
-    color: #cdff90 !important; 
+    color: #569C00 !important; 
 }
 /*admin*/
 .custom-navbar .nav-item:nth-child(6) .nav-link:hover {
-    color: #f9f871 !important; 
+    color: #9b9900 !important; 
 }
 
 .custom-navbar .navbar-brand img {
