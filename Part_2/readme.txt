@@ -30,7 +30,15 @@ o	Main
 
 	Griffin
 o	Shop
+-Created a dynamic display of available items using javascript to create addition product cards.
+-Javascript is using JSON in order to fill in the product details, adding in manually is the current functionality.
+-Created basic styling and updated it to look like the other sites.
+-Created ability to modify the quantity of items and add to a localstorage cart.
 o	Cart
+-Cart was created using localstorage and an iterator to dynamically calculate total cost and tax.
+-Requires input at this time but does not do input validation.
+-If submitted with items for card data, will prompt a hidden message on the page, wait 3 seconds, and then clear the cart and move you back to the shop.
+-Ensured styling was consistent with other pages.
 
 	Rigo
 - I was the team leader this time around. I delegated the work between the members by assigning the different pages to the team members via a randomizer to keep
