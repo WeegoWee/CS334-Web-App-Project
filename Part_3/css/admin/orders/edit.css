@@ -1,0 +1,19 @@
+li.card {
+	margin-bottom: 1rem;
+}
+
+li.card h5 {
+	margin-bottom: 0.1rem;
+}
+
+li.card p.card-text:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.item-img-container {
+		width: 130px;
+
+		flex: 0 0 130px;
+	}
+}

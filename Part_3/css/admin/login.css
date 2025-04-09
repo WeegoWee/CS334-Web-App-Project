@@ -1,0 +1,9 @@
+#login-card-container {
+	padding: 5rem 2rem;
+}
+
+#login-card {
+	max-width: 22rem;
+
+	justify-content: center;
+}
