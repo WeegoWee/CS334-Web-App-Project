@@ -11,6 +11,8 @@ const openDB = () => {
             db.createObjectStore("Orders", { keyPath: "orderId", autoIncrement: true});
             db.createObjectStore("OrderedItems", { keyPath: ["orderId", "itemId"]});
             db.createObjectStore("Status", { keyPath: "orderId"});
+            const userStore = db.createObjectStore("users", { keyPath: "id", autoIncrement: true });
+            userStore.createIndex("email", "email", { unique: true });
         };
 
         request.onsuccess = (event) => {
@@ -50,3 +52,67 @@ const seedItemsIfEmpty = async (defaultItems) => {
         }
     }
 };
+const getAllUsers = async () => {
+    const db = await openDB();
+    const tx = db.transaction("users", "readonly");
+    const store = tx.objectStore("users");
+    const request = store.getAll();
+
+    return new Promise((resolve, reject) => {
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+};
+
+const addUser = async (user) => {
+    const db = await openDB();
+    const tx = db.transaction("users", "readwrite");
+    const store = tx.objectStore("users");
+  
+    
+    const index = store.index("email");
+    const existing = await new Promise((resolve, reject) => {
+      const req = index.get(user.email);
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+  
+    if (existing) {
+      throw new Error("A user with that email already exists.");
+    }
+  
+    store.add({
+      ...user,
+      createdAt: new Date().toISOString()
+    });
+  
+    await tx.done;
+  };
+  const getUserById = async (id) => {
+    const db = await openDB();
+    const tx = db.transaction("users", "readonly");
+    const store = tx.objectStore("users");
+    const request = store.get(id);
+
+    return new Promise((resolve, reject) => {
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+};
+
+const updateUser = async (user) => {
+    const db = await openDB();
+    const tx = db.transaction("users", "readwrite");
+    const store = tx.objectStore("users");
+    store.put(user);
+    return tx.done;
+};
+
+const deleteUser = async (id) => {
+    const db = await openDB();
+    const tx = db.transaction("users", "readwrite");
+    const store = tx.objectStore("users");
+    store.delete(id);
+    return tx.done;
+};
+export { openDB, addItem, getAllItems, seedItemsIfEmpty, getAllUsers, addUser,deleteUser,updateUser,getUserById };

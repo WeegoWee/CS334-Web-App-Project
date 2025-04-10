@@ -76,7 +76,7 @@
 				<div class="card-body">
 					<h3 class="card-title mb-4">Sign In</h3>
 
-					<form action="dashboard.html" method="get">
+					<form id="login-form">
 						<div class="mb-3">
 							<label for="email" class="form-label">
 								Email Address
@@ -174,5 +174,51 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
+
+			<script type="module">
+				import { getAllUsers, addUser } from '../js/database.js'; 
+				
+				
+				document.addEventListener("DOMContentLoaded", async () => {
+					const users = await getAllUsers();
+				
+					if (users.length === 0) {
+						await addUser({
+							firstName: "Default",
+							lastName: "Admin",
+							email: "admin@example.com",
+							password: "admin123",
+							jobTitle: "Administrator",
+							orders: true,
+							inventory: true,
+							messages: true,
+							users: true
+						});
+						console.log("Default admin user created.");
+					}
+				});
+				
+				
+				document.getElementById("login-form").addEventListener("submit", async (e) => {
+					e.preventDefault();
+				
+					const email = document.getElementById("email").value.trim();
+					const password = document.getElementById("password").value.trim();
+				
+					try {
+						const users = await getAllUsers();
+						const match = users.find(u => u.email === email && u.password === password);
+				
+						if (match) {
+							window.location.href = "dashboard.html"; 
+						} else {
+							alert("Invalid email or password.");
+						}
+					} catch (err) {
+						console.error("Login error:", err);
+						alert("Something went wrong while logging in.");
+					}
+				});
+				</script>
 	</body>
 </html>
