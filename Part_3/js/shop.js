@@ -2,62 +2,58 @@
  Wait until the entire document has loaded before executing the script
  MDN Docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event 
  This can be updated to run SQL queries once a DB is configured to pull all the information, using static information in JSON for now. */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
-    // Fetch product data from the example products JSON file
-    fetch('../data/products.json')
-        .then(response => response.json()) // To convert the data to readable JSON.
-        .then(products => {
+    //Sets the container where the products will be displayed as the "products" element.
+    const productGrid = document.getElementById('products');
+    await openDB();
+    
+    const products = await getAllItems();
+    // Iterate through all the items in JSON.
+    products.forEach(product => {
 
-            //Sets the container where the products will be displayed as the "products" element.
-            const productGrid = document.getElementById('products');
-            
-            // Iterate through all the items in JSON.
-            products.forEach(product => {
+        // Creates a new div element for each product card.
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        
+        // Creates the requisite HTML for the product card with the name, price, image, as well as buttons for quantities.
+        productCard.innerHTML = `
+            <img src="../img/${product.imageURL}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>$${product.price.toFixed(2)}</p>
+            <div class="quantity-selector">
+                <button class="decrease">-</button>
+                <input type="number" value="1" min="1">
+                <button class="increase">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+        `;
+        
+        // Adds the card for each item into the grid.
+        productGrid.appendChild(productCard);
 
-                // Creates a new div element for each product card.
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                
-                // Creates the requisite HTML for the product card with the name, price, image, as well as buttons for quantities.
-                productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <h2>${product.name}</h2>
-                    <p>$${product.price.toFixed(2)}</p>
-                    <div class="quantity-selector">
-                        <button class="decrease">-</button>
-                        <input type="number" value="1" min="1">
-                        <button class="increase">+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                `;
-                
-                // Adds the card for each item into the grid.
-                productGrid.appendChild(productCard);
+        // Creates the buttons for adding or removing items, as well as adding to cart.
+        const decreaseButton = productCard.querySelector('.decrease');
+        const increaseButton = productCard.querySelector('.increase');
+        const quantityInput = productCard.querySelector('input');
+        const addToCartButton = productCard.querySelector('.add-to-cart');
 
-                // Creates the buttons for adding or removing items, as well as adding to cart.
-                const decreaseButton = productCard.querySelector('.decrease');
-                const increaseButton = productCard.querySelector('.increase');
-                const quantityInput = productCard.querySelector('input');
-                const addToCartButton = productCard.querySelector('.add-to-cart');
-
-                //Event listeners for the different buttons.
-                decreaseButton.addEventListener('click', () => {
-                    if (quantityInput.value > 1) {
-                        quantityInput.value--;
-                    }
-                });
-
-                increaseButton.addEventListener('click', () => {
-                    quantityInput.value++;
-                });
-
-                addToCartButton.addEventListener('click', () => {
-                    const quantity = parseInt(quantityInput.value);
-                    addToCart(product.id, quantity);
-                });
-            });
+        //Event listeners for the different buttons.
+        decreaseButton.addEventListener('click', () => {
+            if (quantityInput.value > 1) {
+                quantityInput.value--;
+            }
         });
+
+        increaseButton.addEventListener('click', () => {
+            quantityInput.value++;
+        });
+
+        addToCartButton.addEventListener('click', () => {
+            const quantity = parseInt(quantityInput.value);
+            addToCart(product.id, quantity);
+        });
+    });
 });
 
 function addToCart(productId, quantity) {
