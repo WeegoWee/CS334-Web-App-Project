@@ -84,100 +84,14 @@
 							<th scope="col">More info</th>
 						</tr>
 					</thead>
-
-					<tbody>
-						<tr>
-							<td>02/22/2024 10:15 PM</td>
-
-							<td>Mark Otto</td>
-							<td>1</td>
-							<td>1500 S Avenue K - Portales, NM 88130</td>
-							<td><b class="text-success">In transit</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td>02/22/2024 10:16 PM</td>
-
-							<td>Jacob Thornton</td>
-							<td>3</td>
-							<td>
-								1780 E University Ave - Las Cruces, NM 88003
-							</td>
-							<td><b class="text-success">In transit</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td>02/22/2024 10:17 PM</td>
-
-							<td>Larry the Bird</td>
-							<td>2</td>
-							<td>
-								1155 University Blvd SE - Albuquerque, NM 87106
-							</td>
-							<td><b class="text-warning">Preparing</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td>02/22/2024 10:18 PM</td>
-
-							<td>Emma Thomas</td>
-							<td>1</td>
-							<td>1234 E Main St - Farmington, NM 87401</td>
-							<td><b class="text-warning">Preparing</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td>02/22/2024 10:19 PM</td>
-
-							<td>John Doe</td>
-							<td>4</td>
-							<td>5678 N 1st St - Roswell, NM 88201</td>
-							<td><b class="text-danger">Pending</b></td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									More info
-								</a>
-							</td>
-						</tr>
-					</tbody>
+					<!--This is updated to utilize the Javascript to programmatically list all of the available orders.-->
+					<tbody id="orders-table"></tbody>
 				</table>
 			</main>
-
+			<!--Updated to ensure that the database connection is open, and the example entries are in, and utilizes admin-orders to load data.-->
+			<script src="../../js/database.js"></script>
+			<script src="../../js/exampleDBEntries.js"></script>
+			<script src="../../js/admin-orders.js"></script>
 			<aside class="p-4">
 				<h4 class="mb-3">Views</h4>
 
@@ -207,5 +121,6 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
+		
 	</body>
 </html>
