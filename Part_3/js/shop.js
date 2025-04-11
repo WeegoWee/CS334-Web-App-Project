@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         addToCartButton.addEventListener('click', () => {
             const quantity = parseInt(quantityInput.value);
-            addToCart(product.id, quantity);
+            addToCart(product.itemId, quantity);
         });
     });
 });

@@ -100,6 +100,21 @@
 				<div class="payment-info">
 					<h2>Payment Information</h2>
 					<form id="payment-form">
+						<label for="customer-name">Full Name:</label>
+						<input type="text"
+							id="customer-name"
+							placeholder="Enter your name..."
+							required />
+						<label for="customer-address">Address:</label>
+						<input type="text"
+							id="customer-address"
+							placeholder="Enter your address..."
+							required />
+						<label for="customer-phone">Phone:</label>
+						<input type="tel"
+							id="customer-phone"
+							placeholder="555-867-5309"
+							required />
 						<label for="card-number">Card Number:</label>
 						<input
 							type="text"
@@ -131,7 +146,7 @@
 				</p>
 			</div>
 		</main>
-		<script src="../js/cart.js"></script>
+		<script type="module" src="../js/cart.js"></script>
 		<footer id="footer">
 			<div id="footer-content">
 				<div class="row text-center text-md-start">

@@ -92,7 +92,8 @@ const addOrder = async (order, orderedItems, statusHistory) => {
         statusHistory
     });
 
-    return tx.complete;
+    await tx.complete;
+    return orderId;
 };
 
 

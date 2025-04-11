@@ -1,12 +1,17 @@
 /* Griffin Graham
  Wait until the entire document has loaded before executing the script
  MDN Docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event */
+import {openDB, getAllItems, addOrder} from './database.js';
 document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     setupPayment();
 });
 
-function loadCart() {
+async function loadCart() {
+
+    const db = await openDB();
+    const items = await getAllItems();
+
     // Grabs the cart item if it's available, if not creates an empty array.
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -19,28 +24,20 @@ function loadCart() {
 
     // Iterates through all of the items in the cart, and then compares to the products.json (to be replaced by database interaction) and multiplies quantity by price, and then creates a new table row to be displayed.
     cart.forEach(item => {
-        fetch(`../data/products.json`)
-            .then(response => response.json())
-            .then(products => {
-                const product = products.find(p => p.id === item.id);
-                if (product) {
-                    const row = document.createElement("tr");
-                    const totalPrice = (product.price * item.quantity).toFixed(2);
-                    subtotal += parseFloat(totalPrice);
+        const product = items.find(p => p.itemId === item.id);
+        if (product) {
+            const totalPrice = (product.price * item.quantity).toFixed(2);
+            subtotal += parseFloat(totalPrice);
 
-                    //Creates the HTML needed in order to display the item.
-                    row.innerHTML = `
-                        <td>${product.name}</td>
-                        <td>${item.quantity}</td>
-                        <td>$${product.price.toFixed(2)}</td>
-                        <td>$${totalPrice}</td>
-                    `;
-                    cartTableBody.appendChild(row);
-
-                    // Updates the total after all items are added
-                    updateSummary(subtotal);
-                }
-            });
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${product.name}</td>
+                <td>${item.quantity}</td>
+                <td>$${product.price.toFixed(2)}</td>
+                <td>$${totalPrice}</td>
+            `;
+            cartTableBody.appendChild(row);
+        }
     });
 }
 
@@ -58,14 +55,59 @@ function updateSummary(subtotal) {
 //Creates the form information for the payment, just basic check that it's submitted, no validation at this time.
 function setupPayment() {
     const paymentForm = document.getElementById("payment-form");
-    paymentForm.addEventListener("submit", (event) => {
+    paymentForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
+        const name = document.getElementById("customer-name").value.trim();
+        const address = document.getElementById("customer-address").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
+        const card = document.getElementById("card-number").value.trim();
+        const expiration = document.getElementById("expiry-date").value.trim();
+        const cvv = document.getElementById("cvv").value.trim();
+
+        if (!/^[0-9]{16}$/.test(card.replace(/\s/g, '')) ||
+            !/^[0-9]{2}\/[0-9]{2}$/.test(expiration) ||
+            !/^[0-9]{3}$/.test(cvv)) {
+                alert("Please enter valid card information.");
+                return;
+            }
+
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (!cart.length) {
+            alert("Your cart is empty, please add items from the shop and attempt payment again!");
+            return;
+        }
+
+        const items = await getAllItems();
+
+        const orderedItems = cart.map(entry => ({
+            itemId: entry.id,
+            amount: entry.quantity,
+            comment: ""
+        }));
+
+        const order = {
+            customerName: name,
+            dateTime: new Date().toISOString(),
+            address: address,
+            phone: phone
+        };
+
+        const statusHistory = [{
+            name: "Placed",
+            date: new Date().toISOString()
+        }];
+
+        const newOrder = await addOrder(order, orderedItems, statusHistory);
+        
         // Simulating a successful payment, and removing the attribute when clicked.
-        document.getElementById("payment-success-message").classList.remove("hidden");
+        //document.getElementById("payment-success-message").classList.remove("hidden");
 
         // Clears the cart after successful payment
         localStorage.removeItem("cart");
+
+        alert(`You have successfully placed your order, your order ID is: ${newOrder}`);
 
         // Reload the page after 3 seconds to simulate order completion, and goes back to the shop page.
         setTimeout(() => {
