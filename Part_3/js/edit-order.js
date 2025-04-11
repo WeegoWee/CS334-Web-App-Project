@@ -2,12 +2,13 @@
 Griffin Graham
 This is the JS and as it currently stands it will allow us to pull all of the data related to individual orders based on orderId, doesn't have functionality to edit or update anything.
 */
+import {openDB, getAllItems} from './database.js';
 document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const orderId = parseInt(params.get("orderId"));
     if (!orderId) return;
   
-    await openDB();
+    const db = await openDB();
   
     //Fetches the order for what was provided.
     const order = await new Promise((resolve, reject) => {

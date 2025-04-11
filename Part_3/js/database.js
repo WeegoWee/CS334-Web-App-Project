@@ -159,5 +159,5 @@ const deleteUser = async (id) => {
     store.delete(id);
     return tx.done;
 };
-//export { openDB, addItem, getAllItems, getAllUsers, addUser,deleteUser,updateUser,getUserById, addOrder };
+export { openDB, addItem, getAllItems, getAllUsers, addUser,deleteUser,updateUser,getUserById, addOrder };
 

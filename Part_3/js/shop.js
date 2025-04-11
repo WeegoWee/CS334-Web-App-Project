@@ -2,6 +2,7 @@
  Wait until the entire document has loaded before executing the script
  MDN Docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event 
  This can be updated to run SQL queries once a DB is configured to pull all the information, using static information in JSON for now. */
+import {openDB, getAllItems} from './database.js';
 document.addEventListener('DOMContentLoaded', async () => {
 
     //Sets the container where the products will be displayed as the "products" element.
