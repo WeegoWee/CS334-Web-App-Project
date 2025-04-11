@@ -74,48 +74,52 @@
 
 				<hr class="my-4" />
 
-				<h2 class="mb-3">
-					<input
-						type="text"
-						class="textfield-seamless"
-						placeholder="[User name]" />
-				</h2>
+
 
 				<ul class="text-body-secondary fs-5 no-bullets">
 					<li>
-						<strong>Email:</strong>
-						<input
-							type="text"
-							class="textfield-seamless"
-							placeholder="name@example.com" />
+						<strong>First name:</strong>
+						<input type="text" id="first-name" class="textfield-seamless" placeholder="First name" />
 					</li>
-
+				
+					<li>
+						<strong>Last name:</strong>
+						<input type="text" id="last-name" class="textfield-seamless" placeholder="Last name" />
+					</li>
+				
+					<li>
+						<strong>Email:</strong>
+						<input type="text" id="email" class="textfield-seamless" placeholder="name@example.com" />
+					</li>
+				
 					<li>
 						<strong>Password:</strong>
-						<input
-							type="password"
-							class="textfield-seamless"
-							placeholder="[Password]" />
+						<input type="password" id="password" class="textfield-seamless" placeholder="Password" />
 					</li>
-
+				
+					<li>
+						<strong>Job title:</strong>
+						<input type="text" id="job-title" class="textfield-seamless" placeholder="e.g., Manager" />
+					</li>
+				
 					<li>
 						<strong>Can manage orders:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input type="checkbox" id="perm-orders" class="form-check-input ms-1" />
 					</li>
-
+				
 					<li>
 						<strong>Can manage the inventory:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input type="checkbox" id="perm-inventory" class="form-check-input ms-1" />
 					</li>
-
+				
 					<li>
 						<strong>Can read messages:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input type="checkbox" id="perm-messages" class="form-check-input ms-1" />
 					</li>
-
+				
 					<li>
 						<strong>Can manage users:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input type="checkbox" id="perm-users" class="form-check-input ms-1" />
 					</li>
 				</ul>
 
@@ -158,5 +162,66 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
+
+
+			<script type="module">
+				import { addUser } from '../../js/database.js';
+			  
+				function isFilled(value) {
+				  return value.trim().length > 0;
+				}
+			  
+				function isValidEmail(email) {
+				  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+				}
+			  
+				document.querySelector('.btn-success').addEventListener('click', async (e) => {
+				  e.preventDefault();
+			  
+				  const firstName = document.getElementById("first-name").value.trim();
+				  const lastName = document.getElementById("last-name").value.trim();
+				  const email = document.getElementById("email").value.trim();
+				  const password = document.getElementById("password").value.trim();
+				  const jobTitle = document.getElementById("job-title").value.trim();
+			  
+				  const permissions = {
+					orders: document.getElementById("perm-orders").checked,
+					inventory: document.getElementById("perm-inventory").checked,
+					messages: document.getElementById("perm-messages").checked,
+					users: document.getElementById("perm-users").checked
+				  };
+			  
+				  if (
+					!isFilled(firstName) ||
+					!isFilled(lastName) ||
+					!isFilled(email) ||
+					!isFilled(password) ||
+					!isFilled(jobTitle)
+				  ) {
+					alert("Please fill in all fields.");
+					return;
+				  }
+			  
+				  if (!isValidEmail(email)) {
+					alert("Please enter a valid email address.");
+					return;
+				  }
+			  
+				  if (password.length < 6) {
+					alert("Password must be at least 6 characters.");
+					return;
+				  }
+			  
+				  try {
+					await addUser({ firstName, lastName, email, password, jobTitle, ...permissions });
+					window.location.href = "index.html";
+				  } catch (err) {
+					console.error("Error creating user:", err);
+					alert(err.message);
+				  }
+				});
+			  </script>
+			
+			
 	</body>
 </html>

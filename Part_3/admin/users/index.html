@@ -82,7 +82,8 @@
 					<thead>
 						<tr>
 							<th scope="col">User ID</th>
-							<th scope="col">Name</th>
+							<th scope="col">Full Name</th>
+							<th scope="col">Job Title</th>
 							<th scope="col">Email</th>
 
 							<th
@@ -111,251 +112,7 @@
 					</thead>
 
 					<tbody>
-						<tr>
-							<th scope="row">11777</th>
-							<td>Luis Maldonado Ramírez</td>
-							<td>
-								<a href="mailto:luis.maldonadoramirez@enmu.edu">
-									luis.maldonadoramirez@enmu.edu
-								</a>
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									Edit
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<th scope="row">17837</th>
-							<td>Rigoberto Estrada Olivas</td>
-							<td>
-								<a
-									href="mailto:rigoberto.estradaolivas@enmu.edu">
-									rigoberto.estradaolivas@enmu.edu
-								</a>
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									Edit
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<th scope="row">25013</th>
-							<td>Marcus Giannini</td>
-							<td>
-								<a href="mailto:marcus.giannini@enmu.edu">
-									marcus.giannini@enmu.edu
-								</a>
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									Edit
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<th scope="row">24203</th>
-							<td>Griffin Graham</td>
-							<td>
-								<a href="mailto:griffin.graham@enmu.edu">
-									griffin.graham@enmu.edu
-								</a>
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									disabled />
-							</td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									Edit
-								</a>
-							</td>
-						</tr>
-
-						<tr>
-							<th scope="row">30941</th>
-							<td>Eduardo Ceh-Varela</td>
-							<td>
-								<a href="mailto:eduardo.ceh@enmu.edu">
-									eduardo.ceh@enmu.edu
-								</a>
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<input
-									type="checkbox"
-									class="form-check-input"
-									checked
-									disabled />
-							</td>
-
-							<td>
-								<a
-									href="edit.html"
-									class="btn btn-outline-primary btn-sm">
-									Edit
-								</a>
-							</td>
-						</tr>
-					</tbody>
+						</tbody>
 				</table>
 			</main>
 
@@ -384,9 +141,32 @@
 			</aside>
 		</div>
 
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"></script>
+		<script type="module">
+			import { getAllUsers } from '../../js/database.js';
+		  
+			const users = await getAllUsers();
+			const tbody = document.querySelector("table tbody");
+			let nextId = 1;
+		  
+			for (const user of users) {
+			  const tr = document.createElement("tr");
+			  tr.innerHTML = `
+				<th scope="row">${nextId++}</th>
+				<td>${user.firstName} ${user.lastName}</td>
+				<td>${user.jobTitle}</td>
+				<td><a href="mailto:${user.email}">${user.email}</a></td>
+				<td><input type="checkbox" class="form-check-input" ${user.orders ? "checked" : ""} disabled /></td>
+				<td><input type="checkbox" class="form-check-input" ${user.inventory ? "checked" : ""} disabled /></td>
+				<td><input type="checkbox" class="form-check-input" ${user.messages ? "checked" : ""} disabled /></td>
+				<td><input type="checkbox" class="form-check-input" ${user.users ? "checked" : ""} disabled /></td>
+				<td><a href="edit.html?id=${user.id}" class="btn btn-outline-primary btn-sm">Edit</a></td>
+			  `;
+			  tbody.appendChild(tr);
+			}
+		  </script>
+       
+				
+
+			
 	</body>
 </html>
