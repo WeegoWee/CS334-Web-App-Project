@@ -1,6 +1,10 @@
+/*Griffin Graham
+This creates a few example entries in the Database for a couple orders and items to use as a baseline for testing pages.
+*/
 document.addEventListener("DOMContentLoaded", async () => {
     await openDB();
 
+    //If there's already items in the DB, it will NOT add these items, and will clear out, if there are no items it will add.
     const checkItems = await getAllItems();
     if (checkItems.length > 0) {
         console.log("Database already has entries");
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     ]
 
+    //Iterates through above the above items and adds them to the database.
     for (const item of exampleItems) {
         await addItem(item);
     }
@@ -61,7 +66,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         { name: "Completed", date: "2025-04-08T14:39:00Z"}
     ];
 
+    //Adds the order with the above example data.
     await addOrder(exampleOrder, exampleOrderedItems, exampleStatusHistory);
 
-    alert("Example data has been added to DB");
-})
+    //Commented out, but used to ensure that data is added on the page that this script is executed on for troubleshooting.
+    //alert("Example data has been added to DB");
+});
