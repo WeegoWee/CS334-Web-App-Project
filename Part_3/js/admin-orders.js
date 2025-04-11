@@ -2,8 +2,9 @@
 Griffin Graham
 Created this to pull the orders, items, and status information for all orders, as well as create the html in order to display it in the html document.
 */
+import {openDB} from './database.js';
 document.addEventListener("DOMContentLoaded", async () => {
-    await openDB();
+    const db = await openDB();
 
     const tbody = document.getElementById("orders-table");
 

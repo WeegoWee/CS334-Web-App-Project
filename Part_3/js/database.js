@@ -66,15 +66,36 @@ const getAllItems = async () => {
     });
 };
 
+//Adds a complete order, with the items and status history.
+const addOrder = async (order, orderedItems, statusHistory) => {
+    const db = await openDB();
 
-const seedItemsIfEmpty = async (defaultItems) => {
-    const items = await getAllItems();
-    if (items.length === 0) {
-        for (const item of defaultItems) {
-        await addItem(item);
-        }
-    }
+    const tx = db.transaction(["Orders", "OrderedItems", "Status"], "readwrite");
+
+    //Uses timestamp as a unique ID instead of auto incrementing.
+    const orderId = Date.now();
+    order.orderId = orderId;
+
+    tx.objectStore("Orders").add(order);
+
+    orderedItems.forEach(item => {
+        tx.objectStore("OrderedItems").add({
+            orderId,
+            itemId: item.itemId,
+            amount: item.amount,
+            comment: item.comment || ""
+        });
+    });
+
+    tx.objectStore("Status").add({
+        orderId,
+        statusHistory
+    });
+
+    return tx.complete;
 };
+
+
 const getAllUsers = async () => {
     const db = await openDB();
     const tx = db.transaction("users", "readonly");
@@ -138,34 +159,5 @@ const deleteUser = async (id) => {
     store.delete(id);
     return tx.done;
 };
-export { openDB, addItem, getAllItems, seedItemsIfEmpty, getAllUsers, addUser,deleteUser,updateUser,getUserById };
-
-//Adds a complete order, with the items and status history.
-const addOrder = async (order, orderedItems, statusHistory) => {
-    const db = await openDB();
-
-    const tx = db.transaction(["Orders", "OrderedItems", "Status"], "readwrite");
-
-    //Uses timestamp as a unique ID instead of auto incrementing.
-    const orderId = Date.now();
-    order.orderId = orderId;
-
-    tx.objectStore("Orders").add(order);
-
-    orderedItems.forEach(item => {
-        tx.objectStore("OrderedItems").add({
-            orderId,
-            itemId: item.itemId,
-            amount: item.amount,
-            comment: item.comment || ""
-        });
-    });
-
-    tx.objectStore("Status").add({
-        orderId,
-        statusHistory
-    });
-
-    return tx.complete;
-};
+export { openDB, addItem, getAllItems, getAllUsers, addUser,deleteUser,updateUser,getUserById, addOrder };
 
