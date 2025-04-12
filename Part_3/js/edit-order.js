@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const orderId = parseInt(params.get("orderId"));
     if (!orderId) return;
-  
+    
     const db = await openDB();
   
     //Fetches the order for what was provided.
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         req.onerror = () => reject(req.error);
         }),
     ]);
-  
+    
     //Header information as provided by the customer.
     document.getElementById("order-header").innerHTML = `
         ${order.customerName}'s order <small class="text-body-tertiary">at ${new Date(order.dateTime).toLocaleString()}</small>
@@ -72,4 +72,63 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
         itemList.appendChild(li);
     });
-});  
+
+    let currentStatus = status.at(-1).name || "Placed";
+
+
+    async function updateOrderStatus(orderId, newStatus) {
+        const db = await openDB();
+        const tx = db.transaction("Status","readwrite");
+        const store = tx.objectStore("Status");
+        const existingStatus = await new Promise((resolve, reject) => {
+            const requested = store.get(orderId);
+            requested.onsuccess = () => resolve(requested.result);
+            requested.onerror = () => reject(requested.error);
+        });
+
+        if(existingStatus) {
+            existingStatus.statusHistory.push({name: newStatus, date: new Date().toISOString() });
+            store.put(existingStatus);
+        } else {
+            store.add({name: newStatus, date: new Date().toISOString()});
+        }
+
+        await tx.complete;
+    }
+
+    document.getElementById("set-status-button").addEventListener("click", async () => {
+        const newStatus = document.getElementById("status-select").value;
+        await updateOrderStatus(orderId, newStatus);
+        alert(`Order has been updated to ${newStatus}`);
+        location.reload();
+    });
+
+    document.getElementById("next-status-button").addEventListener("click", async () => {
+        const statusMap = {
+            "Placed": "In Progress",
+            "In Progress": "Ready for Delivery",
+            "Ready for Delivery": "Completed"
+        };
+
+        const nextStatus = statusMap[currentStatus];
+        if(!nextStatus) {
+            alert("Order has already been completed, cancelled, or has an unknown status.");
+            return;
+        }
+        
+        await updateOrderStatus(orderId, nextStatus);
+        alert(`Order has been updated to ${nextStatus}`);
+        location.reload();
+    });
+
+    document.getElementById("cancel-order-button").addEventListener("click", async () => {
+        if (!confirm("Are you sure you want to cancel this order?")) {
+            return;
+        }
+
+        await updateOrderStatus(orderId, "Cancelled");
+        alert("Order has been cancelled");
+        location.reload();
+    });
+
+});

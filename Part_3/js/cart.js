@@ -35,10 +35,12 @@ async function loadCart() {
                 <td>${item.quantity}</td>
                 <td>$${product.price.toFixed(2)}</td>
                 <td>$${totalPrice}</td>
+                <td>${item.comment || "-"}</td>
             `;
             cartTableBody.appendChild(row);
         }
     });
+    updateSummary(subtotal);
 }
 
 // Uses the items from above in order to find all of the costs associated with the total cost.
@@ -84,7 +86,7 @@ function setupPayment() {
         const orderedItems = cart.map(entry => ({
             itemId: entry.id,
             amount: entry.quantity,
-            comment: ""
+            comment: entry.comment || ""
         }));
 
         const order = {
