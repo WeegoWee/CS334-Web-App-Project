@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Iterate through all the items in JSON.
     products.forEach(product => {
 
+        const coldLabel = product.isCold ? "Iced" : "Hot";
+        const caffeineLabel = product.isCaffeinated ? "Non Caffeinated" : "Caffeinated";
         // Creates a new div element for each product card.
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <img src="../img/${product.imageURL}" alt="${product.name}">
             <h2>${product.name}</h2>
             <p>$${product.price.toFixed(2)}</p>
+            <p class="text-muted">${coldLabel} | ${caffeineLabel}</p>
             <div class="quantity-selector">
                 <button class="decrease">-</button>
                 <input type="number" value="1" min="1">
@@ -52,12 +55,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         addToCartButton.addEventListener('click', () => {
             const quantity = parseInt(quantityInput.value);
-            addToCart(product.id, quantity);
+
+            const comment = prompt("Special Instructions? (Optional)", "");
+            addToCart(product.itemId, quantity, comment || "");
         });
     });
 });
 
-function addToCart(productId, quantity) {
+function addToCart(productId, quantity, comment) {
     // Queries localStorage to determine if there's already a cart , and if not it creates one.
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -67,9 +72,10 @@ function addToCart(productId, quantity) {
     if (existingProduct) {
         // Updates the quantity if the product exists
         existingProduct.quantity += quantity;
+        if (comment) existingProduct.comment = comment;
     } else {
         // Adds the new product to the cart
-        cart.push({ id: productId, quantity: quantity });
+        cart.push({ id: productId, quantity: quantity, comment: comment });
     }
 
     // Save the updated cart to localStorage
