@@ -1,6 +1,7 @@
 /*Griffin Graham
 This creates a few example entries in the Database for a couple orders and items to use as a baseline for testing pages.
 */
+import { openDB, addItem, getAllItems, getAllUsers, addUser,deleteUser,updateUser,getUserById, addOrder } from './database.js';
 document.addEventListener("DOMContentLoaded", async () => {
     await openDB();
 

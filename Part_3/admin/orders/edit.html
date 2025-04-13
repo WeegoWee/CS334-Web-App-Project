@@ -89,10 +89,17 @@
 				<section class="mb-4">
 					<h2 class="mb-4">Actions</h2>
 
-					<div class="d-flex gap-3">
-						<button class="btn btn-primary btn-lg" id="mark-delivered">Mark as delivered</button>
-						<button class="btn btn-outline-danger btn-lg" id="cancel-order">Cancel order</button>
-					  </div>
+					<div class="d-flex gap-3 align-items-center flex-wrap">
+						<select class="form-select form-select-lg w-auto" id="status-select">
+							<option value="In Progress">In Progress</option>
+							<option value="Ready for Delivery">Ready for Delivery</option>
+							<option value="Completed">Completed</option>
+						</select>
+				
+						<button class="btn btn-secondary btn-lg" id="set-status-button">Update Status</button>
+						<button class="btn btn-primary btn-lg" id="next-status-button">Move to Next Phase</button>
+						<button class="btn btn-outline-danger btn-lg" id="cancel-order-button">Cancel Order</button>
+					</div>
 				</section>
 			</main>
 
@@ -122,8 +129,8 @@
 				</ul>
 			</aside>
 		</div>
-		<script src="../../js/database.js"></script>
-    	<script src="../../js/edit-order.js"></script>
+		<script type="module" src="../../js/database.js"></script>
+    	<script type="module" src="../../js/edit-order.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
