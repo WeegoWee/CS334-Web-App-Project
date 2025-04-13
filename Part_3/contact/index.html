@@ -111,16 +111,13 @@
 				</article>
 			</section>
 			<section class="contact-form">
-				<form>
-					<input type="text" placeholder="Your Name" />
-					<input type="text" placeholder="Your Email" />
-					<input type="text" placeholder="Your Number" />
-					<textarea
-						name="message"
-						id="customer-message"
-						placeholder="Enter Your Message"></textarea>
+				<form id="contact-form">
+					<input type="text" name="name" placeholder="Your Name" required />
+					<input type="email" name="email" placeholder="Your Email" required />
+					<input type="tel" name="number" placeholder="Your Phone Number" />
+					<textarea name="message" id="customer-message" placeholder="Enter Your Message" required></textarea>
 					<input type="submit" value="Submit" />
-				</form>
+				  </form>
 				<img src="../img/Contact-Images/cupatea.JPG" alt="" />
 			</section>
 			<footer id="footer">
@@ -197,5 +194,32 @@
 				</div>
 			</footer>
 		</main>
+		<script type="module">
+			import { openDB } from '../js/database.js'; 
+		  
+			document.getElementById('contact-form').addEventListener('submit', async (e) => {
+			  e.preventDefault();
+			  const formData = new FormData(e.target);
+			  const message = {
+				name: formData.get('name'),
+				email: formData.get('email'),
+				number: formData.get('number') || '',
+				message: formData.get('message'),
+				timestamp: new Date().toISOString(),
+			  };
+		  
+			  try {
+				const db = await openDB();
+				const tx = db.transaction('Messages', 'readwrite');
+				await tx.objectStore('Messages').add(message);
+				await tx.done;
+				alert('Message sent successfully!');
+				e.target.reset();
+			  } catch (error) {
+				console.error('Error saving message:', error);
+				alert('Failed to send message. Please try again.');
+			  }
+			});
+		  </script>
 	</body>
 </html>
