@@ -31,6 +31,9 @@ const openDB = () => {
             db.createObjectStore("Status", { keyPath: "orderId"});
             const userStore = db.createObjectStore("users", { keyPath: "id", autoIncrement: true });
             userStore.createIndex("email", "email", { unique: true });
+
+            const messageStore = db.createObjectStore('Messages', { keyPath: 'id', autoIncrement: true });
+            messageStore.createIndex('timestamp', 'timestamp');
         };
 
         // If successful will return the opened database.
@@ -138,7 +141,7 @@ const deleteUser = async (id) => {
     store.delete(id);
     return tx.done;
 };
-export { openDB, addItem, getAllItems, seedItemsIfEmpty, getAllUsers, addUser,deleteUser,updateUser,getUserById };
+export { openDB, addItem, getAllItems, seedItemsIfEmpty, getAllUsers, addUser, deleteUser, updateUser, getUserById, addOrder, addMessage, getAllMessages, deleteMessage };
 
 //Adds a complete order, with the items and status history.
 const addOrder = async (order, orderedItems, statusHistory) => {
@@ -166,6 +169,32 @@ const addOrder = async (order, orderedItems, statusHistory) => {
         statusHistory
     });
 
-    return tx.complete;
+    return tx.complete;    
 };
-
+//add messages
+const addMessage = async (message) => {
+    const db = await openDB();
+    const tx = db.transaction('Messages', 'readwrite');
+    tx.objectStore('Messages').add(message);
+    return tx.done;
+  };
+  
+  // Get all messages
+  const getAllMessages = async () => {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction('Messages', 'readonly');
+      const store = tx.objectStore('Messages');
+      const request = store.getAll();
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  };
+  
+  // Delete a message
+  const deleteMessage = async (id) => {
+    const db = await openDB();
+    const tx = db.transaction('Messages', 'readwrite');
+    tx.objectStore('Messages').delete(id);
+    return tx.done;
+  };

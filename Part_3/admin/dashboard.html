@@ -296,82 +296,13 @@
 
 				<section>
 					<h2>
-						Messages
-						<button class="btn btn-outline-primary btn-sm ms-2">
-							View all
-						</button>
+					  Messages
+					  <a href="messages" class="btn btn-outline-primary btn-sm ms-2">
+						View all
+					  </a>
 					</h2>
-
-					<div id="messages-container" class="my-4">
-						<div class="card card-body">
-							<h4 class="card-title">Luis Maldonado Ramírez</h4>
-
-							<a href="mailto:luis.maldonadoramirez@enmu.edu">
-								luis.maldonadoramirez@enmu.edu
-							</a>
-							<a href="tel:+524611381559"> +52 (461) 138 1559 </a>
-
-							<hr />
-
-							<p>
-								Message <br />
-								with multiple <br />
-								lines
-							</p>
-
-							<button class="btn btn-outline-danger">
-								Delete
-							</button>
-						</div>
-
-						<div class="card card-body">
-							<h4 class="card-title">Eduardo Ceh-Varela</h4>
-
-							<a href="mailto:eduardo.ceh@enmu.edu">
-								eduardo.ceh@enmu.edu
-							</a>
-
-							<hr />
-
-							<p>
-								Hello everyone, <br />
-								<br />
-
-								I will give a talk in Albuquerque this Friday,
-								03/07/2025, so we won't have class that day.
-								<br />
-								However, I will record the lecture when I return
-								to Portales. <br />
-								There won't be attendance for this lecture, but
-								please watch it when posted to keep track of our
-								topics. <br />
-								<br />
-
-								Have a good Spring break.
-							</p>
-
-							<button class="btn btn-outline-danger">
-								Delete
-							</button>
-						</div>
-
-						<div class="card card-body">
-							<h4 class="card-title">Rigoberto Estrada Olivas</h4>
-
-							<a href="mailto:rigoberto.estradaolivas@enmu.edu">
-								rigoberto.estradaolivas@enmu.edu
-							</a>
-
-							<hr />
-
-							<p>Message</p>
-
-							<button class="btn btn-outline-danger">
-								Delete
-							</button>
-						</div>
-					</div>
-				</section>
+					<div id="messages-container" class="my-4"></div>
+				  </section>
 			</main>
 
 			<aside class="p-4">
@@ -403,5 +334,56 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
+			<script type="module">
+				import { getAllMessages, addMessage } from '../js/database.js'; 
+			  
+				async function loadMessages() {
+				  const container = document.getElementById('messages-container');
+				  container.innerHTML = '';
+				  try {
+					// Set default message
+					const messages = await getAllMessages();
+					if (messages.length === 0) {
+					  const defaultMessage = {
+						name: "Jean-Luc Picard",
+						email: "jlpicard@starfleet.gov",
+						number: "555-1701-002",
+						message:
+						  "Good day,\n\nI find your tea selection most exhilarating. Please provide a sample of Earl Grey, hot.\nMake it so.",
+						timestamp: "2025-04-13T10:00:00Z",
+					  };
+					  await addMessage(defaultMessage);
+					  console.log("Default message added to database");
+					}
+			  
+					// Load messages
+					const latestMessages = await getAllMessages();
+					const displayMessages = latestMessages.slice(0, 3); // Show only 3 latest
+					if (displayMessages.length === 0) {
+					  container.innerHTML = '<p>No messages found.</p>';
+					  return;
+					}
+					latestMessages.forEach((msg) => {
+					  const card = document.createElement('div');
+					  card.className = 'card card-body mb-3';
+					  card.innerHTML = `
+						<h4 class="card-title">${msg.name}</h4>
+						<a href="mailto:${msg.email}">${msg.email}</a>
+						${msg.number ? `<a href="tel:${msg.number}">${msg.number}</a>` : ''}
+						<hr />
+						<p>${msg.message.replace(/\n/g, '<br />')}</p>
+					  `;
+					  container.appendChild(card);
+					});
+				  } catch (error) {
+					console.error('Error loading messages:', error);
+					container.innerHTML = '<p>Error loading messages.</p>';
+				  }
+				}
+			  
+				loadMessages();
+			  </script>
+			  
+			  Changes Made:
 	</body>
 </html>
