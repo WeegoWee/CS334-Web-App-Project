@@ -36,11 +36,33 @@ async function loadCart() {
                 <td>$${product.price.toFixed(2)}</td>
                 <td>$${totalPrice}</td>
                 <td>${item.comment || "-"}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}" title="Remove from cart">
+                    <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
             `;
             cartTableBody.appendChild(row);
         }
     });
+
+    document.querySelectorAll(".remove-item").forEach(button => {
+        button.addEventListener("click", () => {
+            const itemId = parseInt(button.getAttribute("data-id"));
+            if (confirm("Are you sure you want to remove this item from the cart?")) {
+                removeFromCart(itemId);
+                loadCart(); // Reload the cart view
+            }
+        });
+    });
+
     updateSummary(subtotal);
+}
+
+function removeFromCart(itemId) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updatedCart = cart.filter(item => item.id !== itemId);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
 }
 
 // Uses the items from above in order to find all of the costs associated with the total cost.

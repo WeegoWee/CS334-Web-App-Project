@@ -93,62 +93,7 @@
 							</tr>
 						</thead>
 
-						<tbody>
-							<tr>
-								<td>02/22/2024 10:15 PM</td>
-
-								<td>Mark Otto</td>
-								<td>1</td>
-								<td>1500 S Avenue K - Portales, NM 88130</td>
-								<td><b class="text-success">In transit</b></td>
-
-								<td>
-									<a
-										href="orders/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										More info
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<td>02/22/2024 10:16 PM</td>
-
-								<td>Jacob Thornton</td>
-								<td>3</td>
-								<td>
-									1780 E University Ave - Las Cruces, NM 88003
-								</td>
-								<td><b class="text-success">In transit</b></td>
-
-								<td>
-									<a
-										href="orders/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										More info
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<td>02/22/2024 10:17 PM</td>
-
-								<td>Larry the Bird</td>
-								<td>2</td>
-								<td>
-									1155 University Blvd SE - Albuquerque, NM
-									87106
-								</td>
-								<td><b class="text-warning">Preparing</b></td>
-
-								<td>
-									<a
-										href="orders/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										More info
-									</a>
-								</td>
-							</tr>
+						<tbody id="active-orders-body">
 						</tbody>
 					</table>
 				</section>
@@ -382,6 +327,74 @@
 				}
 			  
 				loadMessages();
+				import { openDB } from '../js/database.js';
+
+				async function loadActiveOrders() {
+					const db = await openDB();
+
+					const orders = await new Promise((resolve, reject) => {
+					const tx = db.transaction("Orders", "readonly");
+					const store = tx.objectStore("Orders");
+					const request = store.getAll();
+
+					request.onsuccess = () => resolve(request.result);
+					request.onerror = () => reject(request.error);
+					});
+
+					const statuses = await new Promise((resolve, reject) => {
+					const tx = db.transaction("Status", "readonly");
+					const store = tx.objectStore("Status");
+					const request = store.getAll();
+
+					request.onsuccess = () => resolve(request.result);
+					request.onerror = () => reject(request.error);
+					});
+
+					// Combine and filter non-cancelled and non-completed
+					const activeOrders = orders.map(order => {
+					const statusEntry = statuses.find(s => s.orderId === order.orderId);
+					const currentStatus = statusEntry?.statusHistory?.at(-1)?.name || "Placed";
+					return { ...order, currentStatus };
+					}).filter(o => o.currentStatus !== "Completed" && o.currentStatus !== "Cancelled").sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime)).slice(0, 5);
+
+					const tbody = document.getElementById("active-orders-body");
+					tbody.innerHTML = "";
+					
+					if (activeOrders.length === 0) {
+						tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No active orders to display.</td></tr>`;
+						return;
+					}
+					
+
+					for (const order of activeOrders) {
+					const itemCount = await new Promise((resolve, reject) => {
+					const tx = db.transaction("OrderedItems", "readonly");
+					const store = tx.objectStore("OrderedItems");
+					const req = store.getAll();
+
+					req.onsuccess = () => {
+					const count = req.result.filter(i => i.orderId === order.orderId).length;
+					resolve(count);
+					};
+					req.onerror = () => reject(req.error);
+					});
+
+					const row = document.createElement("tr");
+					row.innerHTML = `
+					<td>${new Date(order.dateTime).toLocaleString()}</td>
+					<td>${order.customerName}</td>
+					<td>${itemCount}</td>
+					<td>${order.address}</td>
+					<td><b class="text-success">${order.currentStatus}</b></td>
+					<td>
+					<a href="orders/edit.html?orderId=${order.orderId}" class="btn btn-outline-primary btn-sm">More info</a>
+					</td>
+					`;
+					tbody.appendChild(row);
+				}
+				}
+
+				loadActiveOrders();
 			  </script>
 			  
 			  Changes Made:

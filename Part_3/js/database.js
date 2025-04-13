@@ -164,36 +164,10 @@ const deleteUser = async (id) => {
     return tx.done;
 };
 
-export { openDB, addItem, getAllItems, seedItemsIfEmpty, getAllUsers, addUser, deleteUser, updateUser, getUserById, addOrder, addMessage, getAllMessages, deleteMessage };
+export { openDB, addItem, getAllItems, getAllUsers, addUser, deleteUser, updateUser, getUserById, addOrder, addMessage, getAllMessages, deleteMessage };
 
 //Adds a complete order, with the items and status history.
-const addOrder = async (order, orderedItems, statusHistory) => {
-    const db = await openDB();
 
-    const tx = db.transaction(["Orders", "OrderedItems", "Status"], "readwrite");
-
-    //Uses timestamp as a unique ID instead of auto incrementing.
-    const orderId = Date.now();
-    order.orderId = orderId;
-
-    tx.objectStore("Orders").add(order);
-
-    orderedItems.forEach(item => {
-        tx.objectStore("OrderedItems").add({
-            orderId,
-            itemId: item.itemId,
-            amount: item.amount,
-            comment: item.comment || ""
-        });
-    });
-
-    tx.objectStore("Status").add({
-        orderId,
-        statusHistory
-    });
-
-    return tx.complete;    
-};
 //add messages
 const addMessage = async (message) => {
     const db = await openDB();
