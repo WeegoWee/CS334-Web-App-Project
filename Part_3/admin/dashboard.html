@@ -267,7 +267,7 @@
 					const items = await getAllItems();
 					if (items.length === 0) {
 						tableBody.innerHTML =
-							"<tr><td colspan='8' class='text-center text-muted'>No items found.</td></tr>";
+							"<tr><td colspan='7' class='text-center text-muted'>No items found.</td></tr>";
 						return;
 					}
 					// Sort items by stock (ascending) and take the first 5
@@ -292,7 +292,7 @@
 							<td>${item.stock}</td>
 							<td>$${item.price.toFixed(2)}</td>
 							<td><a href="inventory/edit-item.html?id=${
-								item.id
+								item.itemId
 							}" class="btn btn-outline-primary btn-sm">Edit</a></td>
 						`;
 						tableBody.appendChild(row);
