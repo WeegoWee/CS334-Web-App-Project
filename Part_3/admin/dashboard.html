@@ -197,7 +197,9 @@
 
 				const users = await getAllUsers();
 				const matchingUser = users.find(
-					user => user.email === currentUser.email
+					user =>
+						user.email === currentUser.email &&
+						user.password === currentUser.password
 				);
 				if (!matchingUser) window.location.href = "login.html";
 
