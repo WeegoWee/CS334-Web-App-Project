@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	// Iterate through each item and add it to the table
 	for (const item of items) {
+		if (item.isDiscontinued) continue; // Skip discontinued items
+
 		tbody.innerHTML += `
 			<tr>
 				<td>${item.series}</td>

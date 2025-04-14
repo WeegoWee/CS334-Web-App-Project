@@ -272,6 +272,7 @@
 					}
 					// Sort items by stock (ascending) and take the first 5
 					const sortedItems = items
+						.filter(item => !item.isDiscontinued)
 						.sort((a, b) => a.stock - b.stock)
 						.slice(0, 5);
 					sortedItems.forEach(item => {
