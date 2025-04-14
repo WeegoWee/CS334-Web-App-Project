@@ -175,50 +175,81 @@
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
 
-			<script type="module">
-				import { getAllUsers, addUser } from '../js/database.js'; 
-				
-				
-				document.addEventListener("DOMContentLoaded", async () => {
-					const users = await getAllUsers();
-				
-					if (users.length === 0) {
-						await addUser({
-							firstName: "Default",
-							lastName: "Admin",
-							email: "admin@example.com",
-							password: "admin123",
-							jobTitle: "Administrator",
-							orders: true,
-							inventory: true,
-							messages: true,
-							users: true
-						});
-						console.log("Default admin user created.");
-					}
-				});
-				
-				
-				document.getElementById("login-form").addEventListener("submit", async (e) => {
-					e.preventDefault();
-				
-					const email = document.getElementById("email").value.trim();
-					const password = document.getElementById("password").value.trim();
-				
+		<script type="module">
+			import { getAllUsers, addUser } from "../js/database.js";
+
+			document.addEventListener("DOMContentLoaded", async () => {
+				const users = await getAllUsers();
+
+				if (users.length === 0) {
+					await addUser({
+						firstName: "Default",
+						lastName: "Admin",
+						email: "admin@example.com",
+						password: "admin123",
+						jobTitle: "Administrator",
+						orders: true,
+						inventory: true,
+						messages: true,
+						users: true,
+					});
+					console.log("Default admin user created.");
+				}
+
+				// If the user is already logged in, redirect to dashboard
+				const currentUser = JSON.parse(
+					localStorage.getItem("currentUser")
+				);
+				if (currentUser) {
 					try {
-						const users = await getAllUsers();
-						const match = users.find(u => u.email === email && u.password === password);
-				
-						if (match) {
-							window.location.href = "dashboard.html"; 
-						} else {
-							alert("Invalid email or password.");
-						}
+						await login(currentUser.email, currentUser.password);
+					} catch (err) {
+						console.error("Login error:", err);
+						alert("Something went wrong. Please log in again.");
+					}
+				}
+			});
+
+			document
+				.getElementById("login-form")
+				.addEventListener("submit", async e => {
+					e.preventDefault();
+
+					const email = document.getElementById("email").value.trim();
+					const password = document
+						.getElementById("password")
+						.value.trim();
+
+					try {
+						await login(email, password);
 					} catch (err) {
 						console.error("Login error:", err);
 						alert("Something went wrong while logging in.");
 					}
 				});
-				</script>
+
+			async function login(email, password) {
+				const users = await getAllUsers();
+				const match = users.find(
+					u => u.email === email && u.password === password
+				);
+
+				if (match) {
+					// Store the logged-in user in localStorage
+					// to persist the session across page reloads
+					localStorage.setItem(
+						"currentUser",
+						JSON.stringify({
+							email: match.email,
+							password: match.password,
+						})
+					);
+
+					window.location.href = "dashboard.html";
+				} else {
+					alert("Invalid email or password.");
+				}
+			}
+		</script>
 	</body>
 </html>
