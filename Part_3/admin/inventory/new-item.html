@@ -76,12 +76,14 @@
 
 				<h2 class="mb-3">
 					<input
+						id="item-name"
 						type="text"
 						class="textfield-seamless"
 						placeholder="[Item name]" />
 
 					<small class="text-body-tertiary">
 						$<input
+							id="item-price"
 							type="number"
 							class="textfield-seamless"
 							placeholder="0.00" />
@@ -90,16 +92,9 @@
 
 				<ul class="text-body-secondary fs-5 no-bullets">
 					<li>
-						<strong>Item ID:</strong>
-						<input
-							type="text"
-							class="textfield-seamless"
-							placeholder="AA-AA-00" />
-					</li>
-
-					<li>
 						<strong>Series:</strong>
 						<input
+							id="item-series"
 							type="text"
 							class="textfield-seamless"
 							placeholder="[Series]" />
@@ -107,17 +102,24 @@
 
 					<li>
 						<strong>No-Caffeine Item:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input
+							id="item-no-caffeine"
+							type="checkbox"
+							class="form-check-input ms-1" />
 					</li>
 
 					<li>
 						<strong>Cold Item:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input
+							id="item-cold"
+							type="checkbox"
+							class="form-check-input ms-1" />
 					</li>
 
 					<li>
 						<strong>Stock:</strong>
 						<input
+							id="item-stock"
 							type="number"
 							class="textfield-seamless"
 							placeholder="0" />
@@ -126,7 +128,8 @@
 
 				<hr class="my-4" />
 
-				<section>
+				<!-- * Cannot add this functionality at the moment -->
+				<!-- <section>
 					<h2 class="mb-4">Item Image</h2>
 
 					<div class="d-flex justify-content-end gap-3">
@@ -136,10 +139,12 @@
 					</div>
 				</section>
 
-				<hr class="my-4" />
+				<hr class="my-4" /> -->
 
 				<div class="d-flex gap-3">
-					<a href="." class="btn btn-success btn-lg">Create item</a>
+					<button id="create-item" class="btn btn-success btn-lg">
+						Create item
+					</button>
 
 					<a href="." class="btn btn-outline-secondary btn-lg">
 						Cancel
@@ -174,6 +179,8 @@
 			</aside>
 		</div>
 
+		<script type="module" src="../../js/database.js"></script>
+		<script type="module" src="../../js/new-item.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

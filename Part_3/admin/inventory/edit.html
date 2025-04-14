@@ -72,54 +72,54 @@
 			<main class="container-xl mt-5">
 				<h1 class="mb-3">
 					<input
+						id="item-name"
 						type="text"
-						class="textfield-seamless"
-						value="Earl Grey Milk Tea & 3Js" />
+						class="textfield-seamless" />
 
 					<small class="text-body-tertiary">
 						$<input
+							id="item-price"
 							type="number"
-							class="textfield-seamless"
-							value="6.90" />
+							class="textfield-seamless" />
 					</small>
 				</h1>
 
 				<ul class="text-body-secondary fs-5 no-bullets">
 					<li>
 						<strong>Item ID:</strong>
-						<input
-							type="text"
-							class="textfield-seamless"
-							value="TM-EG-01" />
+						<span id="item-id"></span>
 					</li>
 
 					<li>
 						<strong>Series:</strong>
 						<input
+							id="item-series"
 							type="text"
-							class="textfield-seamless"
-							value="Milk Tea" />
+							class="textfield-seamless" />
 					</li>
 
 					<li>
 						<strong>No-Caffeine Item:</strong>
-						<input type="checkbox" class="form-check-input ms-1" />
+						<input
+							id="item-no-caffeine"
+							type="checkbox"
+							class="form-check-input ms-1" />
 					</li>
 
 					<li>
 						<strong>Cold Item:</strong>
 						<input
+							id="item-cold"
 							type="checkbox"
-							class="form-check-input ms-1"
-							checked />
+							class="form-check-input ms-1" />
 					</li>
 
 					<li>
 						<strong>Stock:</strong>
 						<input
+							id="item-stock"
 							type="number"
-							class="textfield-seamless"
-							value="50" />
+							class="textfield-seamless" />
 					</li>
 				</ul>
 
@@ -127,7 +127,9 @@
 					<a href="." class="btn btn-outline-secondary btn-lg">
 						Cancel
 					</a>
-					<a href="." class="btn btn-primary btn-lg">Save changes</a>
+					<button id="update-item" class="btn btn-primary btn-lg">
+						Save changes
+					</button>
 				</div>
 
 				<hr class="my-4" />
@@ -136,14 +138,15 @@
 					<h2 class="mb-4">Item Image</h2>
 
 					<div class="d-flex justify-content-center">
-						<img id="item-image" src="https://picsum.photos/500" />
+						<img id="item-image" />
 					</div>
 
-					<div class="d-flex justify-content-end gap-3">
+					<!-- * Cannot add this functionality at the moment -->
+					<!-- <div class="d-flex justify-content-end gap-3">
 						<button class="btn btn-outline-primary btn-lg">
 							Upload new image
 						</button>
-					</div>
+					</div> -->
 				</section>
 
 				<hr class="my-4" />
@@ -152,7 +155,10 @@
 					<h2 class="mb-4">Other actions</h2>
 
 					<div class="d-flex gap-3">
-						<a href="." class="btn btn-danger btn-lg">
+						<a
+							href="."
+							class="btn btn-danger btn-lg"
+							id="discontinue-item">
 							Mark as discontinued
 						</a>
 					</div>
@@ -186,6 +192,8 @@
 			</aside>
 		</div>
 
+		<script type="module" src="../../js/database.js"></script>
+		<script type="module" src="../../js/edit-item.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

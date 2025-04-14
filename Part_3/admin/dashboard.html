@@ -67,9 +67,9 @@
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
-				<h1>Admin Dashboard</h1>
+				<h1 class="mb-4">Admin Dashboard</h1>
 
-				<section class="mt-4">
+				<section id="active-orders">
 					<h2>
 						Active Orders
 						<a
@@ -93,14 +93,13 @@
 							</tr>
 						</thead>
 
-						<tbody id="active-orders-body">
-						</tbody>
+						<tbody id="active-orders-body"></tbody>
 					</table>
+
+					<hr class="my-4" />
 				</section>
 
-				<hr class="my-4" />
-
-				<section>
+				<section id="inventory">
 					<h2>
 						Inventory
 						<a
@@ -118,8 +117,6 @@
 					<table class="table table-striped align-middle">
 						<thead>
 							<tr>
-								<th scope="col">ID</th>
-
 								<th scope="col">Series</th>
 								<th scope="col">Name</th>
 
@@ -134,120 +131,23 @@
 							</tr>
 						</thead>
 
-						<tbody>
-							<tr>
-								<th scope="row">TM-EG-01</th>
-
-								<td>Milk Tea</td>
-								<td>Earl Grey Milk Tea & 3Js</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>50</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">TM-PL-02</th>
-
-								<td>Milk Tea</td>
-								<td>Pearl Milk Tea</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>47</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">SH-PY-01</th>
-
-								<td>Slush</td>
-								<td>Passionfruit Yogurt</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>25</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-						</tbody>
+						<tbody id="inventory-body"></tbody>
 					</table>
+
+					<hr class="my-4" />
 				</section>
 
-				<hr class="my-4" />
-
-				<section>
+				<section id="messages">
 					<h2>
-					  Messages
-					  <a href="messages" class="btn btn-outline-primary btn-sm ms-2">
-						View all
-					  </a>
+						Messages
+						<a
+							href="messages"
+							class="btn btn-outline-primary btn-sm ms-2">
+							View all
+						</a>
 					</h2>
 					<div id="messages-container" class="my-4"></div>
-				  </section>
+				</section>
 			</main>
 
 			<aside class="p-4">
@@ -279,104 +179,193 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
-			<script type="module">
-				import { getAllMessages, addMessage } from '../js/database.js'; 
-			  
-				async function loadMessages() {
-				  const container = document.getElementById('messages-container');
-				  container.innerHTML = '';
-				  try {
+		<script type="module">
+			import {
+				openDB,
+				getAllUsers,
+				getAllMessages,
+				addMessage,
+				getAllItems,
+				addItem,
+			} from "../js/database.js";
+
+			document.addEventListener("DOMContentLoaded", async () => {
+				const currentUser = JSON.parse(
+					localStorage.getItem("currentUser")
+				);
+				if (!currentUser) window.location.href = "login.html";
+
+				const users = await getAllUsers();
+				const matchingUser = users.find(
+					user =>
+						user.email === currentUser.email &&
+						user.password === currentUser.password
+				);
+				if (!matchingUser) window.location.href = "login.html";
+
+				// Hide the sections that the user has no access to
+				const ordersSection = document.getElementById("active-orders");
+				if (!matchingUser.orders) ordersSection.style.display = "none";
+
+				const inventorySection = document.getElementById("inventory");
+				if (!matchingUser.inventory)
+					inventorySection.style.display = "none";
+
+				const messagesSection = document.getElementById("messages");
+				if (!matchingUser.messages)
+					messagesSection.style.display = "none";
+			});
+
+			async function loadMessages() {
+				const container = document.getElementById("messages-container");
+				container.innerHTML = "";
+				try {
 					// Set default message
 					const messages = await getAllMessages();
 					if (messages.length === 0) {
-					  const defaultMessage = {
-						name: "Jean-Luc Picard",
-						email: "jlpicard@starfleet.gov",
-						number: "555-1701-002",
-						message:
-						  "Good day,\n\nI find your tea selection most exhilarating. Please provide a sample of Earl Grey, hot.\nMake it so.",
-						timestamp: "2025-04-13T10:00:00Z",
-					  };
-					  await addMessage(defaultMessage);
-					  console.log("Default message added to database");
+						const defaultMessage = {
+							name: "Jean-Luc Picard",
+							email: "jlpicard@starfleet.gov",
+							number: "555-1701-002",
+							message:
+								"Good day,\n\nI find your tea selection most exhilarating. Please provide a sample of Earl Grey, hot.\nMake it so.",
+							timestamp: "2025-04-13T10:00:00Z",
+						};
+						await addMessage(defaultMessage);
+						console.log("Default message added to database");
 					}
-			  
+
 					// Load messages
 					const latestMessages = await getAllMessages();
 					const displayMessages = latestMessages.slice(0, 3); // Show only 3 latest
 					if (displayMessages.length === 0) {
-					  container.innerHTML = '<p>No messages found.</p>';
-					  return;
+						container.innerHTML = "<p>No messages found.</p>";
+						return;
 					}
-					latestMessages.forEach((msg) => {
-					  const card = document.createElement('div');
-					  card.className = 'card card-body mb-3';
-					  card.innerHTML = `
+					latestMessages.forEach(msg => {
+						const card = document.createElement("div");
+						card.className = "card card-body mb-3";
+						card.innerHTML = `
 						<h4 class="card-title">${msg.name}</h4>
 						<a href="mailto:${msg.email}">${msg.email}</a>
-						${msg.number ? `<a href="tel:${msg.number}">${msg.number}</a>` : ''}
+						${msg.number ? `<a href="tel:${msg.number}">${msg.number}</a>` : ""}
 						<hr />
-						<p>${msg.message.replace(/\n/g, '<br />')}</p>
+						<p>${msg.message.replace(/\n/g, "<br />")}</p>
 					  `;
-					  container.appendChild(card);
+						container.appendChild(card);
 					});
-				  } catch (error) {
-					console.error('Error loading messages:', error);
-					container.innerHTML = '<p>Error loading messages.</p>';
-				  }
+				} catch (error) {
+					console.error("Error loading messages:", error);
+					container.innerHTML = "<p>Error loading messages.</p>";
 				}
-			  
-				loadMessages();
-				import { openDB } from '../js/database.js';
+			}
 
-				async function loadActiveOrders() {
-					const db = await openDB();
+			async function loadInventory() {
+				const tableBody = document.getElementById("inventory-body");
+				tableBody.innerHTML = ""; // Clear existing rows
+				try {
+					const items = await getAllItems();
+					if (items.length === 0) {
+						tableBody.innerHTML =
+							"<tr><td colspan='7' class='text-center text-muted'>No items found.</td></tr>";
+						return;
+					}
+					// Sort items by stock (ascending) and take the first 5
+					const sortedItems = items
+						.filter(item => !item.isDiscontinued)
+						.sort((a, b) => a.stock - b.stock)
+						.slice(0, 5);
+					sortedItems.forEach(item => {
+						const row = document.createElement("tr");
+						row.innerHTML = `
+							<td>${item.series}</td>
+							<td>${item.name}</td>
+							<td>
+								<input type="checkbox" disabled ${
+									item.noCaffeine ? "checked" : ""
+								} class="form-check-input" />
+							</td>
+							<td>
+								<input type="checkbox" disabled ${
+									item.isCold ? "checked" : ""
+								} class="form-check-input" />
+							</td>
+							<td>${item.stock}</td>
+							<td>$${item.price.toFixed(2)}</td>
+							<td><a href="inventory/edit-item.html?id=${
+								item.itemId
+							}" class="btn btn-outline-primary btn-sm">Edit</a></td>
+						`;
+						tableBody.appendChild(row);
+					});
+				} catch (error) {
+					console.error("Error loading inventory:", error);
+					tableBody.innerHTML =
+						"<tr><td colspan='8' class='text-center text-danger'>Error loading inventory.</td></tr>";
+				}
+			}
 
-					const orders = await new Promise((resolve, reject) => {
+			async function loadActiveOrders() {
+				const db = await openDB();
+
+				const orders = await new Promise((resolve, reject) => {
 					const tx = db.transaction("Orders", "readonly");
 					const store = tx.objectStore("Orders");
 					const request = store.getAll();
 
 					request.onsuccess = () => resolve(request.result);
 					request.onerror = () => reject(request.error);
-					});
+				});
 
-					const statuses = await new Promise((resolve, reject) => {
+				const statuses = await new Promise((resolve, reject) => {
 					const tx = db.transaction("Status", "readonly");
 					const store = tx.objectStore("Status");
 					const request = store.getAll();
 
 					request.onsuccess = () => resolve(request.result);
 					request.onerror = () => reject(request.error);
-					});
+				});
 
-					// Combine and filter non-cancelled and non-completed
-					const activeOrders = orders.map(order => {
-					const statusEntry = statuses.find(s => s.orderId === order.orderId);
-					const currentStatus = statusEntry?.statusHistory?.at(-1)?.name || "Placed";
-					return { ...order, currentStatus };
-					}).filter(o => o.currentStatus !== "Completed" && o.currentStatus !== "Cancelled").sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime)).slice(0, 5);
+				// Combine and filter non-cancelled and non-completed
+				const activeOrders = orders
+					.map(order => {
+						const statusEntry = statuses.find(
+							s => s.orderId === order.orderId
+						);
+						const currentStatus =
+							statusEntry?.statusHistory?.at(-1)?.name ||
+							"Placed";
+						return { ...order, currentStatus };
+					})
+					.filter(
+						o =>
+							o.currentStatus !== "Completed" &&
+							o.currentStatus !== "Cancelled"
+					)
+					.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
+					.slice(0, 5);
 
-					const tbody = document.getElementById("active-orders-body");
-					tbody.innerHTML = "";
-					
-					if (activeOrders.length === 0) {
-						tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No active orders to display.</td></tr>`;
-						return;
-					}
-					
+				const tbody = document.getElementById("active-orders-body");
+				tbody.innerHTML = "";
 
-					for (const order of activeOrders) {
+				if (activeOrders.length === 0) {
+					tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No active orders to display.</td></tr>`;
+					return;
+				}
+
+				for (const order of activeOrders) {
 					const itemCount = await new Promise((resolve, reject) => {
-					const tx = db.transaction("OrderedItems", "readonly");
-					const store = tx.objectStore("OrderedItems");
-					const req = store.getAll();
+						const tx = db.transaction("OrderedItems", "readonly");
+						const store = tx.objectStore("OrderedItems");
+						const req = store.getAll();
 
-					req.onsuccess = () => {
-					const count = req.result.filter(i => i.orderId === order.orderId).length;
-					resolve(count);
-					};
-					req.onerror = () => reject(req.error);
+						req.onsuccess = () => {
+							const count = req.result.filter(
+								i => i.orderId === order.orderId
+							).length;
+							resolve(count);
+						};
+						req.onerror = () => reject(req.error);
 					});
 
 					const row = document.createElement("tr");
@@ -387,16 +376,20 @@
 					<td>${order.address}</td>
 					<td><b class="text-success">${order.currentStatus}</b></td>
 					<td>
-					<a href="orders/edit.html?orderId=${order.orderId}" class="btn btn-outline-primary btn-sm">More info</a>
+					<a href="orders/edit.html?orderId=${
+						order.orderId
+					}" class="btn btn-outline-primary btn-sm">More info</a>
 					</td>
 					`;
 					tbody.appendChild(row);
 				}
-				}
+			}
 
-				loadActiveOrders();
-			  </script>
-			  
-			  Changes Made:
+			loadMessages();
+			loadInventory();
+			loadActiveOrders();
+		</script>
+
+		<script type="module" src="../../js/exampleDBEntries.js"></script>
 	</body>
 </html>
