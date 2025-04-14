@@ -117,8 +117,6 @@
 					<table class="table table-striped align-middle">
 						<thead>
 							<tr>
-								<th scope="col">ID</th>
-
 								<th scope="col">Series</th>
 								<th scope="col">Name</th>
 
@@ -133,106 +131,7 @@
 							</tr>
 						</thead>
 
-						<tbody>
-							<tr>
-								<th scope="row">TM-EG-01</th>
-
-								<td>Milk Tea</td>
-								<td>Earl Grey Milk Tea & 3Js</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>50</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">TM-PL-02</th>
-
-								<td>Milk Tea</td>
-								<td>Pearl Milk Tea</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										disabled />
-								</td>
-
-								<td>47</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">SH-PY-01</th>
-
-								<td>Slush</td>
-								<td>Passionfruit Yogurt</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>
-									<input
-										class="form-check-input"
-										type="checkbox"
-										checked
-										disabled />
-								</td>
-
-								<td>25</td>
-								<td>$6.90</td>
-
-								<td>
-									<a
-										href="inventory/edit.html"
-										class="btn btn-outline-primary btn-sm">
-										Edit
-									</a>
-								</td>
-							</tr>
-						</tbody>
+						<tbody id="inventory-body"></tbody>
 					</table>
 
 					<hr class="my-4" />
@@ -282,9 +181,12 @@
 			crossorigin="anonymous"></script>
 		<script type="module">
 			import {
+				openDB,
 				getAllUsers,
 				getAllMessages,
 				addMessage,
+				getAllItems,
+				addItem,
 			} from "../js/database.js";
 
 			document.addEventListener("DOMContentLoaded", async () => {
@@ -356,8 +258,49 @@
 				}
 			}
 
-			loadMessages();
-			import { openDB } from "../js/database.js";
+			async function loadInventory() {
+				const tableBody = document.getElementById("inventory-body");
+				tableBody.innerHTML = ""; // Clear existing rows
+				try {
+					const items = await getAllItems();
+					if (items.length === 0) {
+						tableBody.innerHTML =
+							"<tr><td colspan='8' class='text-center text-muted'>No items found.</td></tr>";
+						return;
+					}
+					// Sort items by stock (ascending) and take the first 5
+					const sortedItems = items
+						.sort((a, b) => a.stock - b.stock)
+						.slice(0, 5);
+					sortedItems.forEach(item => {
+						const row = document.createElement("tr");
+						row.innerHTML = `
+							<td>${item.series}</td>
+							<td>${item.name}</td>
+							<td>
+								<input type="checkbox" disabled ${
+									item.noCaffeine ? "checked" : ""
+								} class="form-check-input" />
+							</td>
+							<td>
+								<input type="checkbox" disabled ${
+									item.isCold ? "checked" : ""
+								} class="form-check-input" />
+							</td>
+							<td>${item.stock}</td>
+							<td>$${item.price.toFixed(2)}</td>
+							<td><a href="inventory/edit-item.html?id=${
+								item.id
+							}" class="btn btn-outline-primary btn-sm">Edit</a></td>
+						`;
+						tableBody.appendChild(row);
+					});
+				} catch (error) {
+					console.error("Error loading inventory:", error);
+					tableBody.innerHTML =
+						"<tr><td colspan='8' class='text-center text-danger'>Error loading inventory.</td></tr>";
+				}
+			}
 
 			async function loadActiveOrders() {
 				const db = await openDB();
@@ -439,7 +382,11 @@
 				}
 			}
 
+			loadMessages();
+			loadInventory();
 			loadActiveOrders();
 		</script>
+
+		<script type="module" src="../../js/exampleDBEntries.js"></script>
 	</body>
 </html>
