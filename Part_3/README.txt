@@ -16,6 +16,7 @@ Marcus:- added methods for contact page and users admin page functionality in da
 - debugged awardspace redirect issue on cart page.
 
 Luis:
+    Served as the project leader and met with the professor on April 4th, 2025. Created the E-R model for the database. Corrected the home page to have all visible elements inside of the body. Added missing validation for the shop page. Added admin session persistence through localStorage. Added redirection from admin pages to login if user is not authenticated, or to dashboard if user has no access to the requested page. Added functionality to hide the sections of the dashboard that the user has no access to. Added functionality for the inventory section of the admin console.
 
 Rigoberto:
     Informed team on Thursday April 10th they are withdrawing from school and will not be available to work on project for remainder of semester.
