@@ -67,9 +67,9 @@
 
 		<div class="d-flex flex-grow-1">
 			<main class="container-xl mt-5">
-				<h1>Admin Dashboard</h1>
+				<h1 class="mb-4">Admin Dashboard</h1>
 
-				<section class="mt-4">
+				<section id="active-orders">
 					<h2>
 						Active Orders
 						<a
@@ -95,11 +95,11 @@
 
 						<tbody id="active-orders-body"></tbody>
 					</table>
+
+					<hr class="my-4" />
 				</section>
 
-				<hr class="my-4" />
-
-				<section>
+				<section id="inventory">
 					<h2>
 						Inventory
 						<a
@@ -234,11 +234,11 @@
 							</tr>
 						</tbody>
 					</table>
+
+					<hr class="my-4" />
 				</section>
 
-				<hr class="my-4" />
-
-				<section>
+				<section id="messages">
 					<h2>
 						Messages
 						<a
@@ -294,10 +294,22 @@
 				if (!currentUser) window.location.href = "login.html";
 
 				const users = await getAllUsers();
-				const match = users.find(
+				const matchingUser = users.find(
 					user => user.email === currentUser.email
 				);
-				if (!match) window.location.href = "login.html";
+				if (!matchingUser) window.location.href = "login.html";
+
+				// Hide the sections that the user has no access to
+				const ordersSection = document.getElementById("active-orders");
+				if (!matchingUser.orders) ordersSection.style.display = "none";
+
+				const inventorySection = document.getElementById("inventory");
+				if (!matchingUser.inventory)
+					inventorySection.style.display = "none";
+
+				const messagesSection = document.getElementById("messages");
+				if (!matchingUser.messages)
+					messagesSection.style.display = "none";
 			});
 
 			async function loadMessages() {
@@ -429,7 +441,5 @@
 
 			loadActiveOrders();
 		</script>
-
-		Changes Made:
 	</body>
 </html>
