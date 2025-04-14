@@ -11,7 +11,9 @@ Griffin:
     Updated admin dashboard page to pull live order data for orders not in Completed/Cancelled status.
     Fixed issue on awardspace site for several images that were over upload size limit.
 
-Marcus:
+Marcus:- added methods for contact page and users admin page functionality in database.js.
+-added login page functionality to validate user credential are in DB.
+- debugged awardspace redirect issue on cart page.
 
 Luis:
 
