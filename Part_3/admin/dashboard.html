@@ -93,8 +93,7 @@
 							</tr>
 						</thead>
 
-						<tbody id="active-orders-body">
-						</tbody>
+						<tbody id="active-orders-body"></tbody>
 					</table>
 				</section>
 
@@ -241,13 +240,15 @@
 
 				<section>
 					<h2>
-					  Messages
-					  <a href="messages" class="btn btn-outline-primary btn-sm ms-2">
-						View all
-					  </a>
+						Messages
+						<a
+							href="messages"
+							class="btn btn-outline-primary btn-sm ms-2">
+							View all
+						</a>
 					</h2>
 					<div id="messages-container" class="my-4"></div>
-				  </section>
+				</section>
 			</main>
 
 			<aside class="p-4">
@@ -279,104 +280,134 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
-			<script type="module">
-				import { getAllMessages, addMessage } from '../js/database.js'; 
-			  
-				async function loadMessages() {
-				  const container = document.getElementById('messages-container');
-				  container.innerHTML = '';
-				  try {
+		<script type="module">
+			import {
+				getAllUsers,
+				getAllMessages,
+				addMessage,
+			} from "../js/database.js";
+
+			document.addEventListener("DOMContentLoaded", async () => {
+				const currentUser = JSON.parse(
+					localStorage.getItem("currentUser")
+				);
+				if (!currentUser) window.location.href = "login.html";
+
+				const users = await getAllUsers();
+				const match = users.find(
+					user => user.email === currentUser.email
+				);
+				if (!match) window.location.href = "login.html";
+			});
+
+			async function loadMessages() {
+				const container = document.getElementById("messages-container");
+				container.innerHTML = "";
+				try {
 					// Set default message
 					const messages = await getAllMessages();
 					if (messages.length === 0) {
-					  const defaultMessage = {
-						name: "Jean-Luc Picard",
-						email: "jlpicard@starfleet.gov",
-						number: "555-1701-002",
-						message:
-						  "Good day,\n\nI find your tea selection most exhilarating. Please provide a sample of Earl Grey, hot.\nMake it so.",
-						timestamp: "2025-04-13T10:00:00Z",
-					  };
-					  await addMessage(defaultMessage);
-					  console.log("Default message added to database");
+						const defaultMessage = {
+							name: "Jean-Luc Picard",
+							email: "jlpicard@starfleet.gov",
+							number: "555-1701-002",
+							message:
+								"Good day,\n\nI find your tea selection most exhilarating. Please provide a sample of Earl Grey, hot.\nMake it so.",
+							timestamp: "2025-04-13T10:00:00Z",
+						};
+						await addMessage(defaultMessage);
+						console.log("Default message added to database");
 					}
-			  
+
 					// Load messages
 					const latestMessages = await getAllMessages();
 					const displayMessages = latestMessages.slice(0, 3); // Show only 3 latest
 					if (displayMessages.length === 0) {
-					  container.innerHTML = '<p>No messages found.</p>';
-					  return;
+						container.innerHTML = "<p>No messages found.</p>";
+						return;
 					}
-					latestMessages.forEach((msg) => {
-					  const card = document.createElement('div');
-					  card.className = 'card card-body mb-3';
-					  card.innerHTML = `
+					latestMessages.forEach(msg => {
+						const card = document.createElement("div");
+						card.className = "card card-body mb-3";
+						card.innerHTML = `
 						<h4 class="card-title">${msg.name}</h4>
 						<a href="mailto:${msg.email}">${msg.email}</a>
-						${msg.number ? `<a href="tel:${msg.number}">${msg.number}</a>` : ''}
+						${msg.number ? `<a href="tel:${msg.number}">${msg.number}</a>` : ""}
 						<hr />
-						<p>${msg.message.replace(/\n/g, '<br />')}</p>
+						<p>${msg.message.replace(/\n/g, "<br />")}</p>
 					  `;
-					  container.appendChild(card);
+						container.appendChild(card);
 					});
-				  } catch (error) {
-					console.error('Error loading messages:', error);
-					container.innerHTML = '<p>Error loading messages.</p>';
-				  }
+				} catch (error) {
+					console.error("Error loading messages:", error);
+					container.innerHTML = "<p>Error loading messages.</p>";
 				}
-			  
-				loadMessages();
-				import { openDB } from '../js/database.js';
+			}
 
-				async function loadActiveOrders() {
-					const db = await openDB();
+			loadMessages();
+			import { openDB } from "../js/database.js";
 
-					const orders = await new Promise((resolve, reject) => {
+			async function loadActiveOrders() {
+				const db = await openDB();
+
+				const orders = await new Promise((resolve, reject) => {
 					const tx = db.transaction("Orders", "readonly");
 					const store = tx.objectStore("Orders");
 					const request = store.getAll();
 
 					request.onsuccess = () => resolve(request.result);
 					request.onerror = () => reject(request.error);
-					});
+				});
 
-					const statuses = await new Promise((resolve, reject) => {
+				const statuses = await new Promise((resolve, reject) => {
 					const tx = db.transaction("Status", "readonly");
 					const store = tx.objectStore("Status");
 					const request = store.getAll();
 
 					request.onsuccess = () => resolve(request.result);
 					request.onerror = () => reject(request.error);
-					});
+				});
 
-					// Combine and filter non-cancelled and non-completed
-					const activeOrders = orders.map(order => {
-					const statusEntry = statuses.find(s => s.orderId === order.orderId);
-					const currentStatus = statusEntry?.statusHistory?.at(-1)?.name || "Placed";
-					return { ...order, currentStatus };
-					}).filter(o => o.currentStatus !== "Completed" && o.currentStatus !== "Cancelled").sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime)).slice(0, 5);
+				// Combine and filter non-cancelled and non-completed
+				const activeOrders = orders
+					.map(order => {
+						const statusEntry = statuses.find(
+							s => s.orderId === order.orderId
+						);
+						const currentStatus =
+							statusEntry?.statusHistory?.at(-1)?.name ||
+							"Placed";
+						return { ...order, currentStatus };
+					})
+					.filter(
+						o =>
+							o.currentStatus !== "Completed" &&
+							o.currentStatus !== "Cancelled"
+					)
+					.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
+					.slice(0, 5);
 
-					const tbody = document.getElementById("active-orders-body");
-					tbody.innerHTML = "";
-					
-					if (activeOrders.length === 0) {
-						tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No active orders to display.</td></tr>`;
-						return;
-					}
-					
+				const tbody = document.getElementById("active-orders-body");
+				tbody.innerHTML = "";
 
-					for (const order of activeOrders) {
+				if (activeOrders.length === 0) {
+					tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted">No active orders to display.</td></tr>`;
+					return;
+				}
+
+				for (const order of activeOrders) {
 					const itemCount = await new Promise((resolve, reject) => {
-					const tx = db.transaction("OrderedItems", "readonly");
-					const store = tx.objectStore("OrderedItems");
-					const req = store.getAll();
+						const tx = db.transaction("OrderedItems", "readonly");
+						const store = tx.objectStore("OrderedItems");
+						const req = store.getAll();
 
-					req.onsuccess = () => {
-					const count = req.result.filter(i => i.orderId === order.orderId).length;
-					resolve(count);
-					};
-					req.onerror = () => reject(req.error);
+						req.onsuccess = () => {
+							const count = req.result.filter(
+								i => i.orderId === order.orderId
+							).length;
+							resolve(count);
+						};
+						req.onerror = () => reject(req.error);
 					});
 
 					const row = document.createElement("tr");
@@ -387,16 +418,18 @@
 					<td>${order.address}</td>
 					<td><b class="text-success">${order.currentStatus}</b></td>
 					<td>
-					<a href="orders/edit.html?orderId=${order.orderId}" class="btn btn-outline-primary btn-sm">More info</a>
+					<a href="orders/edit.html?orderId=${
+						order.orderId
+					}" class="btn btn-outline-primary btn-sm">More info</a>
 					</td>
 					`;
 					tbody.appendChild(row);
 				}
-				}
+			}
 
-				loadActiveOrders();
-			  </script>
-			  
-			  Changes Made:
+			loadActiveOrders();
+		</script>
+
+		Changes Made:
 	</body>
 </html>
